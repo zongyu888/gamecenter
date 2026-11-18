@@ -37,6 +37,10 @@
 *.yaml  text eol=lf
 *.ts    text eol=lf
 
+# Windows 批处理必须是 CRLF，否则双击后 cmd.exe 解析失败（静默什么都不发生）
+*.bat   text eol=crlf
+*.cmd   text eol=crlf
+
 # 让 GitHub 把这些目录当作纯文本展示，避免统计成"非代码仓库"
 *.glb -diff
 *.webp -diff
