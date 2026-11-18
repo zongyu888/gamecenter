@@ -120,12 +120,12 @@
 ```bash
 git clone https://github.com/zongyu888/gamecenter.git
 cd gamecenter
-node server.js        # 然后打开 http://localhost:8080
+node server.js        # 然后打开 http://localhost:8899
 ```
 
 Windows 用户也可以直接双击 `启动游戏中心.bat`。
 
-> 需要 Node.js 14+。没有 Node 也可以用 `python -m http.server 8080` 或 `npx serve`。
+> 需要 Node.js 14+。没有 Node 也可以用 `python -m http.server 8899` 或 `npx serve`。
 
 ---
 
