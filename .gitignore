@@ -31,3 +31,6 @@ desktop.ini
 .vscode/
 .idea/
 *.swp
+
+# 封面原始母版（仅本地保留，仓库使用 covers/*.webp）
+_cover_originals/
