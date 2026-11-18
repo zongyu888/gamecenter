@@ -1,0 +1,10 @@
+# 游戏档案馆 · 路由规则
+# 说明：Cloudflare Pages 单文件上限 25 MiB，哈罗农场的 slice.glb 走 R2（无大小限制），
+# 这里做 301 重定向，游戏代码零改动。
+#
+# 重要：当前 Cloudflare 凭据没有 purge_cache 权限，改不动边缘缓存。
+# 因此资源内容一旦更新，必须靠「目录改名」来换缓存键（新路径 = 新缓存条目），
+# 例如 harrowfield -> harrowfield-v2 -> harrowfield-v3，同时更新 data.js 里的 path。
+# v3 = 原始未压缩资源（用户要求保留原画质），R2 上的 key 也同步换到 v3/ 下。
+
+/games/action/harrowfield/assets/slice/slice.glb  https://oss-content.stargrow.store/harrowfield/v3/slice.glb  301

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>油画漫游</title>
+    <link rel="icon" href="data:," />
+    <style>html,body{background:#1c1512;height:100%;margin:0;overflow:hidden}#view,#view canvas{width:100%;height:100%;display:block;position:fixed;inset:0}#loading{color:#d9b98a;letter-spacing:.08em;place-items:center;font:15px/1.4 Georgia,serif;display:grid;position:fixed;inset:0}#hint{color:#f3e3c3;letter-spacing:.04em;pointer-events:none;white-space:nowrap;background:#1c14128c;border-radius:3px;padding:8px 16px;font:14px/1.4 Georgia,serif;transition:opacity 2s;position:fixed;bottom:26px;left:50%;transform:translate(-50%)}#hint.faded{opacity:0}#hint.off{display:none}html[data-scene=aurora] body{background:#061219}html[data-scene=aurora] #loading{color:#9fd8c4}#scenes{gap:6px;display:flex;position:fixed;bottom:18px;left:18px}#scenes button{letter-spacing:.04em;color:#f3e3c3;cursor:pointer;background:#1c14128c;border:1px solid #f3e3c340;border-radius:3px;padding:8px 12px;font:13px/1 Georgia,serif}#scenes button.on{color:#1c1512;cursor:default;background:#f3e3c3e6}</style>
+    <script type="module" crossorigin src="./assets/index-DNRGLj3z.js"></script>
+  </head>
+  <body>
+    <div id="view"></div>
+    <div id="loading">调和颜料</div>
+    <div id="scenes"><button data-scene="aurora" tabindex="-1">极光</button><button data-scene="autumn" tabindex="-1">秋日森林</button></div>
+    <div id="hint">点击环顾 · WASD 移动 · Shift 疾跑 · Space 跳跃 · 滚轮后退</div>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+# 游戏档案馆 · Cloudflare Pages 边缘缓存规则
+# 说明：一个 URL 模式只能有一个 *，但可用 :占位符 匹配单段路径。
+# 规则按顺序叠加，Cache-Control 重复会拼出冲突值，因此每条带缓存的路径都只出现一次。
+# 注意：游戏通过 iframe 加载，绝不能加 X-Frame-Options / CSP frame-ancestors，否则整站白屏。
+
+# ---- 主页骨架：浏览器每次校验，边缘缓存 1 小时，保证改版能及时可见 ----
+/index.html
+  Cache-Control: public, max-age=0, s-maxage=3600, must-revalidate
+  X-Content-Type-Options: nosniff
+
+/data.js
+  Cache-Control: public, max-age=0, s-maxage=3600, must-revalidate
+  X-Content-Type-Options: nosniff
+
+# Service Worker 自身必须不缓存，否则新版本永远推不到用户
+/sw.js
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Content-Type-Options: nosniff
+
+# ---- 封面：文件名固定但内容稳定，边缘 + 浏览器长缓存 ----
+/covers/*
+  Cache-Control: public, max-age=604800, s-maxage=2592000, immutable
+  X-Content-Type-Options: nosniff
+
+# ---- 游戏构建产物：不再用 immutable。文件名不带版本号，内容会变；
+#      写成一年 immutable 会导致更新后边缘永远发旧文件（没有 purge 权限时无法自救）。
+#      重复访问的速度由 Service Worker 负责，这里保持 7 天 / 边缘 30 天即可。 ----
+/games/:game/assets/*
+  Cache-Control: public, max-age=604800, s-maxage=2592000
+  X-Content-Type-Options: nosniff
+
+# ---- 单文件游戏 HTML 入口：短缓存，便于后续替换优化版 ----
+/games/single-html/*
+  Cache-Control: public, max-age=0, s-maxage=3600, must-revalidate
+  X-Content-Type-Options: nosniff
+
+# ---- 自托管字体（全站共享，文件名是内容哈希）：永久缓存 ----
+/games/_fonts/*
+  Cache-Control: public, max-age=31536000, s-maxage=31536000, immutable
+  X-Content-Type-Options: nosniff

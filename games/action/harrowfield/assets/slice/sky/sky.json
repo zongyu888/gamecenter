@@ -1,0 +1,14 @@
+{
+ "horizon": 0.1135,
+ "degreesTall": 100,
+ "north_u": 0.33,
+ "north": "sky_d",
+ "south": "sky_e",
+ "moon_disc_fraction": 0.9442,
+ "corn_a": {
+  "aspect": 1.9845
+ },
+ "corn_b": {
+  "aspect": 2.1787
+ }
+}

@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>游戏档案馆 · 游戏中心</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+
+  :root{
+    --bg:#0e0d0c;
+    --bg-soft:#171512;
+    --panel:#1c1916;
+    --panel-2:#241f1a;
+    --line:#37302a;
+    --line-soft:#2a2521;
+    --ink:#efe9df;
+    --ink-dim:#a89e91;
+    --ink-faint:#6f665c;
+    --amber:#e8a13c;
+    --amber-glow:rgba(232,161,60,.18);
+    --mono:ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',monospace;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei','PingFang SC','Hiragino Sans GB',sans-serif;
+    --serif:'Songti SC','SimSun','STSong',Georgia,serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);color:var(--ink);font-family:var(--sans);
+    min-height:100vh;-webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(ellipse 90% 60% at 50% -10%,rgba(232,161,60,.10),transparent 60%),
+      radial-gradient(ellipse 60% 50% at 100% 100%,rgba(120,90,50,.06),transparent 60%);
+    background-attachment:fixed;
+  }
+  body::before{
+    content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.045'/%3E%3C/svg%3E");
+  }
+  .wrap{position:relative;z-index:1;max-width:1440px;margin:0 auto;padding:0 40px}
+
+  /* ===== Header ===== */
+  header{padding:34px 0 26px;border-bottom:1px solid var(--line-soft)}
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:14px}
+  .brand-mark{
+    width:44px;height:44px;border:1.5px solid var(--amber);border-radius:10px;
+    display:grid;place-items:center;font-size:22px;color:var(--amber);
+    box-shadow:inset 0 0 20px var(--amber-glow),0 0 24px rgba(232,161,60,.12);
+    position:relative;flex:none;
+  }
+  .brand-mark::after{content:'';position:absolute;inset:4px;border:1px solid rgba(232,161,60,.3);border-radius:6px}
+  .brand h1{font-family:var(--serif);font-size:23px;font-weight:900;letter-spacing:2px;line-height:1.1}
+  .brand .sub{font-family:var(--mono);font-size:10px;color:var(--ink-faint);letter-spacing:3px;margin-top:5px;text-transform:uppercase}
+  .search-box{
+    display:flex;align-items:center;gap:10px;background:var(--panel);
+    border:1px solid var(--line);border-radius:10px;padding:0 14px;height:44px;
+    min-width:300px;flex:0 1 380px;transition:border-color .2s,box-shadow .2s;
+  }
+  .search-box:focus-within{border-color:var(--amber);box-shadow:0 0 0 3px var(--amber-glow)}
+  .search-box svg{flex:none;color:var(--ink-faint)}
+  .search-box input{
+    background:none;border:0;outline:0;color:var(--ink);font-family:var(--sans);
+    font-size:14px;width:100%;
+  }
+  .search-box input::placeholder{color:var(--ink-faint)}
+  .kbd{font-family:var(--mono);font-size:10px;color:var(--ink-faint);border:1px solid var(--line);border-radius:4px;padding:2px 6px}
+
+  /* ===== Hero ===== */
+  .hero{padding:64px 0 44px;position:relative}
+  .hero .eyebrow{
+    font-family:var(--mono);font-size:11px;color:var(--amber);letter-spacing:4px;
+    display:flex;align-items:center;gap:12px;margin-bottom:22px;
+  }
+  .hero .eyebrow::before{content:'';width:36px;height:1px;background:var(--amber)}
+  .hero h2{
+    font-family:var(--serif);font-size:clamp(38px,6vw,74px);font-weight:900;
+    line-height:1.12;letter-spacing:-1px;max-width:900px;
+  }
+  .hero h2 .em{color:var(--amber);position:relative;white-space:nowrap}
+  .hero h2 .em::after{
+    content:'';position:absolute;left:0;right:0;bottom:6px;height:10px;
+    background:var(--amber-glow);z-index:-1;
+  }
+  .hero .lead{margin-top:22px;max-width:560px;color:var(--ink-dim);font-size:15px;line-height:1.9;font-weight:300}
+  .hero-cta{display:flex;align-items:center;gap:18px;margin-top:30px;flex-wrap:wrap}
+  .btn-gh{
+    display:inline-flex;align-items:center;gap:10px;padding:12px 22px;
+    border:1px solid var(--amber);border-radius:8px;background:var(--amber);
+    color:#1a1309;font-size:14px;font-weight:700;text-decoration:none;
+    transition:all .2s;font-family:var(--sans);
+  }
+  .btn-gh:hover{background:transparent;color:var(--amber);transform:translateY(-1px)}
+  .btn-gh svg{width:18px;height:18px;fill:currentColor;flex:none}
+  .hero-cta .note{font-size:12px;color:var(--ink-faint);line-height:1.7;max-width:320px}
+  footer a.foot-link{color:var(--ink-dim);text-decoration:none;border-bottom:1px solid var(--line);transition:all .18s}
+  footer a.foot-link:hover{color:var(--amber);border-color:var(--amber)}
+  .stats{display:flex;gap:44px;margin-top:38px;flex-wrap:wrap}
+  .stat .n{font-family:var(--mono);font-size:30px;font-weight:600;color:var(--ink);line-height:1}
+  .stat .n span{color:var(--amber)}
+  .stat .l{font-size:11px;color:var(--ink-faint);letter-spacing:2px;margin-top:8px}
+
+  /* ===== Filter bar ===== */
+  .filterbar{
+    position:sticky;top:0;z-index:20;background:rgba(14,13,12,.88);
+    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--line-soft);padding:16px 0;
+  }
+  .cats{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+  .cats::-webkit-scrollbar{display:none}
+  .cat{
+    flex:none;display:flex;align-items:center;gap:8px;padding:9px 17px;
+    border:1px solid var(--line);border-radius:8px;background:transparent;
+    color:var(--ink-dim);font-family:var(--sans);font-size:13px;font-weight:500;
+    cursor:pointer;transition:all .18s;white-space:nowrap;
+  }
+  .cat .ic{font-size:14px;line-height:1}
+  .cat:hover{border-color:var(--ink-faint);color:var(--ink);background:var(--panel)}
+  .cat.on{background:var(--amber);border-color:var(--amber);color:#1a1309;font-weight:700}
+  .cat .cnt{font-family:var(--mono);font-size:10px;opacity:.65}
+
+  /* ===== Grid ===== */
+  .section-head{display:flex;align-items:baseline;justify-content:space-between;padding:38px 0 20px;gap:16px;flex-wrap:wrap}
+  .section-head h3{font-family:var(--serif);font-size:22px;font-weight:700;letter-spacing:1px}
+  .section-head .hint{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:1px}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding-bottom:80px}
+  @media(max-width:1200px){.grid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:820px){.grid{grid-template-columns:repeat(2,1fr)}.wrap{padding:0 20px}.stats{gap:26px}}
+  @media(max-width:520px){.grid{grid-template-columns:1fr}}
+
+  .card{
+    position:relative;background:var(--panel);border:1px solid var(--line);
+    border-radius:12px;overflow:hidden;cursor:pointer;
+    transition:transform .28s cubic-bezier(.2,.8,.2,1),border-color .28s,box-shadow .28s;
+    display:flex;flex-direction:column;
+    animation:rise .5s cubic-bezier(.2,.8,.2,1) backwards;
+  }
+  .card:hover{transform:translateY(-6px);border-color:var(--accent,var(--amber));box-shadow:0 18px 50px rgba(0,0,0,.5),0 0 0 1px var(--accent,var(--amber)) inset}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+  .card-cover{
+    height:150px;position:relative;overflow:hidden;flex:none;
+    background:linear-gradient(145deg,var(--accent,#555) 0%,#14110e 130%);
+  }
+  .card-cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s,opacity .5s;filter:saturate(.85) contrast(1.05);opacity:0}
+  .card-cover img.loaded{opacity:1}
+  .card:hover .card-cover img{transform:scale(1.08)}
+  .card-cover::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(to top,var(--panel) 0%,transparent 55%);
+  }
+  .card-cover .glyph{
+    position:absolute;inset:0;display:grid;place-items:center;
+    font-family:var(--mono);font-size:64px;font-weight:600;color:rgba(255,255,255,.10);
+    letter-spacing:-4px;user-select:none;
+  }
+  .card-cover .badge{
+    position:absolute;top:12px;left:12px;z-index:2;font-family:var(--mono);
+    font-size:9px;letter-spacing:1px;padding:4px 8px;border-radius:4px;
+    background:rgba(14,13,12,.72);color:var(--amber);border:1px solid rgba(232,161,60,.35);
+    backdrop-filter:blur(6px);
+  }
+  .card-cover .num{
+    position:absolute;bottom:10px;right:12px;z-index:2;font-family:var(--mono);
+    font-size:11px;color:rgba(255,255,255,.5);letter-spacing:2px;
+  }
+  .card-body{padding:16px 17px 18px;flex:1;display:flex;flex-direction:column}
+  .card-cat{font-family:var(--mono);font-size:9px;letter-spacing:2px;color:var(--accent,var(--amber));text-transform:uppercase;margin-bottom:7px;font-weight:600}
+  .card h4{font-family:var(--serif);font-size:18px;font-weight:700;letter-spacing:.5px;line-height:1.35}
+  .card .en{font-family:var(--mono);font-size:10px;color:var(--ink-faint);margin-top:4px;letter-spacing:.5px}
+  .card .tagline{font-size:12px;color:var(--ink-dim);line-height:1.65;margin-top:12px;font-weight:300;flex:1}
+  .card .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+  .card .tags span{font-size:10px;color:var(--ink-dim);background:var(--panel-2);border:1px solid var(--line-soft);border-radius:4px;padding:3px 8px}
+  .card .play{
+    margin-top:16px;display:flex;align-items:center;justify-content:space-between;
+    font-size:12px;font-weight:700;color:var(--amber);letter-spacing:1px;
+  }
+  .card .play .arrow{font-family:var(--mono);transition:transform .2s}
+  .card:hover .play .arrow{transform:translateX(5px)}
+
+  .empty{grid-column:1/-1;text-align:center;padding:90px 20px;color:var(--ink-faint)}
+  .empty .big{font-size:48px;margin-bottom:16px;opacity:.5}
+
+  /* ===== Modal ===== */
+  .overlay{
+    position:fixed;inset:0;z-index:100;background:rgba(6,5,4,.82);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    display:none;align-items:center;justify-content:center;padding:24px;
+    animation:fade .2s;
+  }
+  .overlay.show{display:flex}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  .modal{
+    background:var(--panel);border:1px solid var(--line);border-radius:16px;
+    width:min(760px,100%);max-height:90vh;overflow:auto;position:relative;
+    box-shadow:0 30px 90px rgba(0,0,0,.7);
+    animation:pop .28s cubic-bezier(.2,.9,.3,1);
+  }
+  @keyframes pop{from{opacity:0;transform:scale(.94) translateY(12px)}to{opacity:1;transform:none}}
+  .modal-cover{height:180px;position:relative;background:linear-gradient(145deg,var(--accent,#555),#14110e 130%);overflow:hidden}
+  .modal-cover img{width:100%;height:100%;object-fit:cover;filter:saturate(.9)}
+  .modal-cover .g{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--mono);font-size:90px;color:rgba(255,255,255,.12);font-weight:600}
+  .modal-close{
+    position:absolute;top:14px;right:14px;z-index:5;width:36px;height:36px;border-radius:50%;
+    background:rgba(14,13,12,.8);border:1px solid var(--line);color:var(--ink);
+    cursor:pointer;font-size:18px;display:grid;place-items:center;transition:.2s;
+  }
+  .modal-close:hover{background:var(--amber);color:#1a1309;border-color:var(--amber)}
+  .modal-body{padding:28px 32px 32px}
+  .modal-body .mcat{font-family:var(--mono);font-size:10px;letter-spacing:3px;color:var(--accent,var(--amber));font-weight:600}
+  .modal-body h2{font-family:var(--serif);font-size:30px;font-weight:900;margin-top:8px;letter-spacing:1px}
+  .modal-body .men{font-family:var(--mono);font-size:11px;color:var(--ink-faint);margin-top:5px;letter-spacing:1px}
+  .modal-body .mdesc{color:var(--ink-dim);line-height:2;font-size:14px;font-weight:300;margin-top:20px}
+  .info-row{display:grid;grid-template-columns:92px 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--line-soft);margin-top:22px;font-size:13px}
+  .info-row .k{color:var(--ink-faint);font-family:var(--mono);font-size:11px;letter-spacing:1px;padding-top:2px}
+  .info-row .v{color:var(--ink);line-height:1.7}
+  .modal-actions{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+  .btn{
+    padding:13px 26px;border-radius:8px;font-family:var(--sans);font-size:14px;font-weight:700;
+    cursor:pointer;border:1px solid var(--line);background:var(--panel-2);color:var(--ink);
+    transition:.2s;letter-spacing:1px;
+  }
+  .btn.primary{background:var(--amber);border-color:var(--amber);color:#1a1309}
+  .btn.primary:hover{background:#f6b451;box-shadow:0 0 24px var(--amber-glow)}
+  .btn:hover{border-color:var(--amber)}
+  .alt-list{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .alt-btn{font-size:11px;padding:6px 12px;border:1px solid var(--line);border-radius:5px;background:transparent;color:var(--ink-dim);cursor:pointer;transition:.2s}
+  .alt-btn:hover{border-color:var(--amber);color:var(--amber)}
+
+  /* ===== Game player ===== */
+  .player{position:fixed;inset:0;z-index:200;background:#000;display:none;flex-direction:column}
+  .player.show{display:flex}
+  .player-bar{
+    height:52px;flex:none;background:var(--bg-soft);border-bottom:1px solid var(--line);
+    display:flex;align-items:center;gap:16px;padding:0 20px;
+  }
+  .player-bar .back{cursor:pointer;color:var(--ink);background:none;border:0;font-size:13px;display:flex;align-items:center;gap:8px;font-family:var(--sans);transition:.2s}
+  .player-bar .back:hover{color:var(--amber)}
+  .player-bar .title{font-family:var(--serif);font-weight:700;font-size:15px;letter-spacing:1px}
+  .player-bar .ctrl{font-family:var(--mono);font-size:10px;color:var(--ink-faint);margin-left:auto;text-align:right;line-height:1.5}
+  .player-bar .openext{padding:7px 14px;border:1px solid var(--line);border-radius:6px;background:transparent;color:var(--ink-dim);font-size:11px;cursor:pointer;transition:.2s}
+  .player-bar .openext:hover{border-color:var(--amber);color:var(--amber)}
+  .player-mount{flex:1;width:100%;min-height:0;display:flex;background:#000}
+  .player-frame{flex:1;width:100%;height:100%;border:0;background:#000;display:block}
+  .player-tip{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    color:var(--ink-dim);font-size:13px;text-align:center;line-height:2;pointer-events:none;
+  }
+
+  footer{border-top:1px solid var(--line-soft);padding:28px 0 40px;color:var(--ink-faint);font-size:11px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  footer .mono{font-family:var(--mono);letter-spacing:1px}
+  .cache-status{
+    display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);
+    font-size:11px;letter-spacing:1px;color:var(--ink-dim);
+    border:1px solid var(--line);border-radius:6px;padding:7px 12px;
+  }
+  .cache-status .dot{width:7px;height:7px;border-radius:50%;background:var(--ink-faint);flex:none;transition:background .3s}
+  .cache-status.ready .dot{background:#7fbf5a}
+  .cache-status.off .dot{background:#c9714a}
+  .cache-status button{
+    background:none;border:0;border-left:1px solid var(--line);padding-left:10px;margin-left:2px;
+    color:var(--ink-faint);font-family:var(--mono);font-size:10px;letter-spacing:1px;cursor:pointer;
+  }
+  .cache-status button:hover{color:var(--amber)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-mark">✦</div>
+        <div>
+          <h1>游戏档案馆</h1>
+          <div class="sub">Game Archive · 中文游戏中心</div>
+        </div>
+      </div>
+      <div class="search-box">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+        <input id="search" type="text" placeholder="搜索游戏名称、类型或标签…" autocomplete="off">
+        <span class="kbd">/</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow">CURATED COLLECTION / 2026</div>
+    <h2>把一整个<span class="em">游戏世界</span><br>装进这一个页面。</h2>
+    <p class="lead">从深海射击到油画漫步，从北欧生存岛到手绘小镇——三十余款风格各异的作品，全部中文化、统一归类，点开即玩。</p>
+    <div class="hero-cta">
+      <a class="btn-gh" href="https://github.com/zongyu888/gamecenter" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        <span>开源仓库 · 免费下载</span>
+      </a>
+      <a class="btn-gh" style="background:transparent;color:var(--ink);border-color:var(--line)" href="https://github.com/zongyu888/gamecenter/archive/refs/heads/main.zip">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5Z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3Z"/></svg>
+        <span>下载 ZIP</span>
+      </a>
+      <span class="note">全部源码已开源到 GitHub，克隆到本地即可离线游玩</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="n"><span id="statGames">30</span><span>+</span></div><div class="l">收录作品</div></div>
+      <div class="stat"><div class="n" id="statCats">8</div><div class="l">精分品类</div></div>
+      <div class="stat"><div class="n">100<span>%</span></div><div class="l">简体中文</div></div>
+      <div class="stat"><div class="n">0<span>台</span></div><div class="l">无需安装</div></div>
+    </div>
+  </section>
+</div>
+
+<div class="filterbar">
+  <div class="wrap"><div class="cats" id="cats"></div></div>
+</div>
+
+<div class="wrap">
+  <div class="section-head">
+    <h3 id="sectionTitle">全部游戏</h3>
+    <span class="hint" id="sectionCount">— 款作品</span>
+  </div>
+  <div class="grid" id="grid"></div>
+  <footer>
+    <span class="mono">GAME ARCHIVE © 2026 · 全部内容已中文化 · <a class="foot-link" href="https://github.com/zongyu888/gamecenter" target="_blank" rel="noopener">GitHub 开源仓库</a></span>
+    <span style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+      <span class="cache-status" id="cacheStatus"><span class="dot"></span><span id="cacheLabel">本地缓存 · 检测中</span><button id="cacheClear" title="清除已缓存的游戏资源">清除</button></span>
+      <span>点击卡片查看详情，游戏在新画面中全屏运行</span>
+    </span>
+  </footer>
+</div>
+
+<!-- 详情弹窗 -->
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal">
+    <button class="modal-close" id="modalClose">×</button>
+    <div class="modal-cover" id="modalCover"></div>
+    <div class="modal-body">
+      <div class="mcat" id="mCat"></div>
+      <h2 id="mName"></h2>
+      <div class="men" id="mEn"></div>
+      <p class="mdesc" id="mDesc"></p>
+      <div class="info-row"><div class="k">操作方式</div><div class="v" id="mCtrl"></div></div>
+      <div class="info-row"><div class="k">作品标签</div><div class="v" id="mTags"></div></div>
+      <div class="modal-actions">
+        <button class="btn primary" id="btnPlay">▶ 立即开玩</button>
+        <button class="btn" id="btnNew">在新标签打开 ↗</button>
+      </div>
+      <div id="altWrap" style="display:none">
+        <div class="info-row"><div class="k">其他版本</div><div class="v"><div class="alt-list" id="altList"></div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 游戏播放器 -->
+<div class="player" id="player">
+  <div class="player-bar">
+    <button class="back" id="playerBack">← 返回游戏库</button>
+    <span class="title" id="playerTitle"></span>
+    <span class="ctrl" id="playerCtrl"></span>
+    <button class="openext" id="playerExt">新标签打开 ↗</button>
+  </div>
+  <div class="player-mount" id="playerMount"></div>
+  <div class="player-tip" id="playerTip">正在载入游戏…<br><span style="font-size:11px;color:#6f665c">若长时间未显示，请点击「新标签打开」</span></div>
+</div>
+
+<script src="data.js?v=4"></script>
+<script>
+(function(){
+  const GAMES = window.GAMES || [];
+  const CATS = window.CATEGORIES || [];
+  let activeCat = 'all', query = '', current = null;
+
+  const $ = s => document.querySelector(s);
+  const grid = $('#grid'), catsEl = $('#cats');
+
+  // ===== 封面图懒加载：进入视口前 250px 才开始下载 =====
+  const lazyImg = ('IntersectionObserver' in window) ? new IntersectionObserver((entries,ob)=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting) return;
+      const img = e.target, src = img.dataset.src;
+      if(src){
+        img.addEventListener('load',()=>img.classList.add('loaded'),{once:true});
+        img.onerror = ()=>img.classList.add('loaded');
+        img.src = src;
+        delete img.dataset.src;
+      }
+      ob.unobserve(img);
+    });
+  },{rootMargin:'250px 0px'}) : null;
+  function observeCovers(){
+    if(!lazyImg) { grid.querySelectorAll('img[data-src]').forEach(img=>{img.src=img.dataset.src;img.classList.add('loaded');delete img.dataset.src;}); return; }
+    grid.querySelectorAll('img[data-src]').forEach(img=>lazyImg.observe(img));
+  }
+
+  const catName = id => (CATS.find(c=>c.id===id)||{}).name || id;
+
+  function renderCats(){
+    catsEl.innerHTML = CATS.map(c=>{
+      const n = c.id==='all' ? GAMES.length : GAMES.filter(g=>g.cat===c.id).length;
+      return `<button class="cat ${c.id===activeCat?'on':''}" data-cat="${c.id}">
+        <span class="ic">${c.icon}</span>${c.name}<span class="cnt">${n}</span></button>`;
+    }).join('');
+    catsEl.querySelectorAll('.cat').forEach(b=>b.onclick=()=>{
+      activeCat=b.dataset.cat; renderCats(); renderGrid();
+    });
+  }
+
+  function filtered(){
+    return GAMES.filter(g=>{
+      const okCat = activeCat==='all'||g.cat===activeCat;
+      const q = query.trim().toLowerCase();
+      const okQ = !q || [g.name,g.en,g.tagline,g.desc,catName(g.cat),...(g.tags||[])]
+        .join(' ').toLowerCase().includes(q);
+      return okCat&&okQ;
+    });
+  }
+
+  function coverHTML(g, modal){
+    if(g.cover){
+      // 弹窗大图立即加载；卡片封面交给 IntersectionObserver 按需加载
+      return modal
+        ? `<img src="${g.cover}" alt="${g.name}">`
+        : `<img data-src="${g.cover}" alt="${g.name}">`;
+    }
+    const glyph = (g.en||g.name).replace(/[^A-Za-z0-9 ]/g,'').trim().split(/\s+/)
+      .map(w=>w[0]).join('').slice(0,3).toUpperCase() || 'G';
+    return `<div class="glyph">${glyph}</div>`;
+  }
+
+  function renderGrid(){
+    const list = filtered();
+    $('#sectionTitle').textContent = activeCat==='all'?'全部游戏':catName(activeCat);
+    $('#sectionCount').textContent = `— ${list.length} 款作品`;
+    if(!list.length){
+      grid.innerHTML = `<div class="empty"><div class="big">⌕</div>没有找到匹配的游戏<br><span style="font-size:12px">换个关键词试试</span></div>`;
+      return;
+    }
+    grid.innerHTML = list.map((g,i)=>`
+      <div class="card" style="--accent:${g.accent||'#e8a13c'};animation-delay:${Math.min(i*35,420)}ms" data-id="${g.id}">
+        <div class="card-cover">
+          ${coverHTML(g)}
+          <span class="badge">${g.build==='single'?'单文件':g.build==='static'?'即开即玩':'网页版'}</span>
+          <span class="num">NO.${String(GAMES.indexOf(g)+1).padStart(2,'0')}</span>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">${catName(g.cat)}</div>
+          <h4>${g.name}</h4>
+          <div class="en">${g.en}</div>
+          <p class="tagline">${g.tagline}</p>
+          <div class="tags">${(g.tags||[]).map(t=>`<span>${t}</span>`).join('')}</div>
+          <div class="play"><span>查看并开玩</span><span class="arrow">→</span></div>
+        </div>
+      </div>`).join('');
+    grid.querySelectorAll('.card').forEach(c=>c.onclick=()=>openDetail(c.dataset.id));
+    observeCovers();
+  }
+
+  function openDetail(id){
+    const g = GAMES.find(x=>x.id===id); if(!g) return;
+    current = g;
+    const cover = $('#modalCover');
+    cover.style.setProperty('--accent',g.accent||'#e8a13c');
+    cover.innerHTML = coverHTML(g,'modal') + (g.cover?'':'<div class="g">'+(g.en||g.name).slice(0,2).toUpperCase()+'</div>');
+    $('#modal').style.setProperty('--accent',g.accent||'#e8a13c');
+    $('#mCat').textContent = catName(g.cat).toUpperCase()+' / '+(g.en||'').toUpperCase();
+    $('#mName').textContent = g.name;
+    $('#mEn').textContent = g.en;
+    $('#mDesc').textContent = g.desc;
+    $('#mCtrl').innerHTML = g.controls || '详见游戏内说明';
+    $('#mTags').textContent = (g.tags||[]).join(' · ');
+    if(g.alt && g.alt.length){
+      $('#altWrap').style.display='block';
+      $('#altList').innerHTML = g.alt.map(a=>`<button class="alt-btn" data-p="${a.p}">${a.n}</button>`).join('');
+      $('#altList').querySelectorAll('button').forEach(b=>b.onclick=()=>startGame(g,b.dataset.p));
+    } else $('#altWrap').style.display='none';
+    $('#overlay').classList.add('show');
+
+    // 预判预热：玩家已打开详情=很可能要玩。空闲时提前把入口页与封面喂进 SW 缓存，
+    // 这样点「立即开玩」时网络路径最短。只对当前查看的这一款预热，其余一律不碰。
+    warmGame(g);
+  }
+
+  // ---- 按需预热：只预热玩家正在看详情的这一款游戏 ----
+  const warmed = new Set();
+  function warmGame(g){
+    if(!g || warmed.has(g.id) || !('serviceWorker' in navigator)) return;
+    warmed.add(g.id);
+    const paths = [g.path, ...(g.alt||[]).map(a=>a.p)];
+    const run = () => {
+      const ctrl = navigator.serviceWorker.controller;
+      if(ctrl) ctrl.postMessage({type:'WARM', paths});
+      // 双保险：SW 未接管时用 link prefetch 也预热入口页
+      else paths.slice(0,1).forEach(p=>{
+        const l=document.createElement('link'); l.rel='prefetch'; l.as='document'; l.href=p; document.head.appendChild(l);
+      });
+    };
+    if(document.hidden) document.addEventListener('visibilitychange', function once(){
+      if(!document.hidden){ document.removeEventListener('visibilitychange',once); run(); }
+    });
+    else if('requestIdleCallback' in window) requestIdleCallback(run, {timeout:1500});
+    else setTimeout(run, 300);
+  }
+  function closeDetail(){ $('#overlay').classList.remove('show'); }
+
+  function startGame(g, path){
+    const p = path || g.path;
+    closeDetail();
+    const player = $('#player');
+    player.classList.add('show');
+    $('#playerTitle').textContent = g.name;
+    $('#playerCtrl').innerHTML = (g.controls||'').replace(/·/g,' ·<br>');
+    $('#playerExt').onclick = ()=>window.open(p,'_blank');
+    $('#playerTip').style.display='block';
+
+    // 懒加载：只有点开玩才创建 iframe 并请求游戏资源
+    const mount = $('#playerMount');
+    mount.innerHTML = ''; // 先销毁上一个游戏，释放 WebGL 内存
+    const frame = document.createElement('iframe');
+    frame.className = 'player-frame';
+    frame.setAttribute('allow','fullscreen; camera; microphone; autoplay; clipboard-read; clipboard-write');
+    frame.onload = ()=>{ $('#playerTip').style.display='none'; };
+    frame.src = p;
+    mount.appendChild(frame);
+  }
+
+  $('#search').addEventListener('input', e=>{ query=e.target.value; renderGrid(); });
+  document.addEventListener('keydown', e=>{
+    if(e.key==='/' && document.activeElement.tagName!=='INPUT'){ e.preventDefault(); $('#search').focus(); }
+    if(e.key==='Escape'){
+      if($('#player').classList.contains('show')) closePlayer();
+      else closeDetail();
+    }
+  });
+  $('#modalClose').onclick = closeDetail;
+  $('#overlay').onclick = e=>{ if(e.target===$('#overlay')) closeDetail(); };
+  $('#btnPlay').onclick = ()=>current && startGame(current);
+  $('#btnNew').onclick = ()=>{ if(current){ window.open(current.path,'_blank'); closeDetail(); } };
+  function closePlayer(){
+    // 彻底销毁 iframe，释放游戏进程与 WebGL 显存，避免后台白白耗性能
+    $('#playerMount').innerHTML = '';
+    $('#player').classList.remove('show');
+  }
+  $('#playerBack').onclick = closePlayer;
+
+  renderCats();
+  renderGrid();
+  $('#statGames').textContent = GAMES.length;
+  $('#statCats').textContent = CATS.length-1;
+
+  // ===== 本地缓存：注册 Service Worker，展示状态，允许手动清理 =====
+  const statusEl = $('#cacheStatus'), labelEl = $('#cacheLabel');
+  function fmtBytes(b){
+    if(!b) return '0 MB';
+    return b >= 1048576 ? (b/1048576).toFixed(1)+' MB' : Math.max(1,Math.round(b/1024))+' KB';
+  }
+  if(!('serviceWorker' in navigator)){
+    statusEl.classList.add('off'); labelEl.textContent = '本地缓存 · 浏览器不支持';
+    $('#cacheClear').style.display = 'none';
+  } else {
+    navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' })
+      .then(reg => { reg.update().catch(()=>{}); })   // 主动检查新版本，避免卡在旧 SW
+      .catch(()=>{
+        statusEl.classList.add('off'); labelEl.textContent = '本地缓存 · 未启用（需 https）';
+      });
+    const ready = () => {
+      statusEl.classList.add('ready');
+      const c = navigator.serviceWorker.controller;
+      if(c) c.postMessage({type:'STATUS'});
+      else labelEl.textContent = '本地缓存 · 已启用';
+    };
+    if(navigator.serviceWorker.controller) ready();
+    else navigator.serviceWorker.addEventListener('controllerchange', ready, {once:true});
+    navigator.serviceWorker.addEventListener('message', e=>{
+      const d = e.data || {};
+      if(d.type==='STATUS_RESULT'){
+        labelEl.textContent = `本地缓存 · ${d.games} 款 / ${fmtBytes(d.bytes)}`;
+      } else if(d.type==='CLEARED'){
+        labelEl.textContent = '本地缓存 · 已清理';
+        setTimeout(()=>{ const c=navigator.serviceWorker.controller; if(c) c.postMessage({type:'STATUS'}); }, 600);
+      }
+    });
+    $('#cacheClear').onclick = ()=>{
+      const c = navigator.serviceWorker.controller;
+      if(!c){ labelEl.textContent='本地缓存 · 尚未就绪'; return; }
+      if(confirm('清除已缓存的游戏资源？主页与封面会保留，下次玩的游戏需重新下载。')){
+        c.postMessage({type:'CLEAR_GAMES'});
+      }
+    };
+  }
+})();
+</script>
+</body>
+</html>

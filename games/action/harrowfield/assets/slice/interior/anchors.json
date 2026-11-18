@@ -1,0 +1,1278 @@
+{
+ "_comment": "LIVE builder: where each live interior piece sits (game coords, m; yaw radians about +y, 0 faces +z). Copied to public/assets/slice/interior/anchors.json. Fires: pos = centre of the fire bed on the hearth floor. Flames: pos = the wick's tip. Clocks: pos = centre of the face on the wall.",
+ "fires": [
+  {
+   "id": "parlour",
+   "pos": [
+    -2.29,
+    0.03,
+    0.35
+   ],
+   "yaw": -1.5707963,
+   "size": 0.9,
+   "logs": true,
+   "grate": true,
+   "light": {
+    "color": "#ff8a3c",
+    "intensity": 9,
+    "distance": 6,
+    "at": [
+     -2.62,
+     0.45,
+     0.35
+    ]
+   }
+  },
+  {
+   "id": "stove",
+   "pos": [
+    -4.9,
+    0.48,
+    -5.3
+   ],
+   "yaw": 0,
+   "size": 0.42,
+   "logs": true,
+   "grate": false,
+   "light": null
+  }
+ ],
+ "flames": [
+  {
+   "id": "kitchen_candle",
+   "pos": [
+    -4.9,
+    1.2,
+    -3.6
+   ],
+   "size": 1,
+   "kind": "candle"
+  },
+  {
+   "id": "oil_lamp",
+   "pos": [
+    -4.55,
+    1.05,
+    3.5
+   ],
+   "size": 1,
+   "kind": "lamp"
+  }
+ ],
+ "clocks": [
+  {
+   "id": "kitchen",
+   "kind": "wall",
+   "pos": [
+    -2.085,
+    2.1,
+    -3.35
+   ],
+   "yaw": -1.5707963,
+   "size": 1,
+   "period": 1.6
+  }
+ ],
+ "dials": [],
+ "attach": [
+  {
+   "model": "radio",
+   "kind": "dial",
+   "offset": [
+    -0.012,
+    0.183,
+    0.122
+   ],
+   "size": 0.058
+  },
+  {
+   "model": "p_radio",
+   "kind": "dial",
+   "offset": [
+    0,
+    0.57,
+    0.181
+   ],
+   "size": 0.05,
+   "w": 0.25,
+   "h": 0.06
+  },
+  {
+   "model": "k_sconce",
+   "kind": "candle",
+   "offset": [
+    0,
+    0.3,
+    0.06
+   ],
+   "size": 1
+  },
+  {
+   "model": "p_candlestick",
+   "kind": "candle",
+   "offset": [
+    -0.006,
+    0.376,
+    0
+   ],
+   "size": 1
+  },
+  {
+   "model": "p_oil_lamp",
+   "kind": "lamp",
+   "offset": [
+    0,
+    0.3,
+    0
+   ],
+   "size": 1
+  },
+  {
+   "model": "up_candlestick",
+   "kind": "candle",
+   "offset": [
+    -0.011,
+    0.196,
+    0.001
+   ],
+   "size": 1
+  },
+  {
+   "model": "c_furnace",
+   "kind": "grate",
+   "offset": [
+    0.19,
+    0.73,
+    0.44
+   ],
+   "size": 1,
+   "w": 0.31,
+   "h": 0.33
+  },
+  {
+   "model": "k_oil_lamp",
+   "kind": "lamp",
+   "offset": [
+    0,
+    0.29,
+    0
+   ],
+   "size": 1
+  },
+  {
+   "model": "up_oil_lamp",
+   "kind": "lamp",
+   "offset": [
+    0,
+    0.29,
+    0
+   ],
+   "size": 1
+  },
+  {
+   "model": "k_candle_holder",
+   "kind": "candle",
+   "offset": [
+    -0.026,
+    0.233,
+    -0.005
+   ],
+   "size": 1
+  },
+  {
+   "model": "up_candle_brass",
+   "kind": "candle",
+   "offset": [
+    -0.002,
+    0.294,
+    0.001
+   ],
+   "size": 1
+  }
+ ],
+ "dressFiles": [
+  "slice/dress/dressing.json",
+  "slice/interior/dressing-up.json"
+ ],
+ "cuckoos": [
+  {
+   "id": "parlour",
+   "pos": [
+    -7.92,
+    2.02,
+    4.62
+   ],
+   "yaw": 1.5707963,
+   "size": 1,
+   "period": 1.1
+  }
+ ],
+ "doors": [
+  {
+   "id": "hall",
+   "pos": [
+    -1.91,
+    0,
+    0.7
+   ],
+   "yaw": 1.5707963,
+   "w": 0.8,
+   "h": 1.1,
+   "paper": "wp_hall2",
+   "powerK": 8
+  }
+ ],
+ "shelves": [
+  {
+   "id": "c_shelf_w1_0",
+   "pos": [
+    1.34,
+    -2.418,
+    3.192
+   ],
+   "yaw": 1.5707963,
+   "len": 1.12,
+   "depth": 0.3,
+   "seed": 3,
+   "sag": 0.01,
+   "maxH": 0.36
+  },
+  {
+   "id": "c_shelf_w1_1",
+   "pos": [
+    1.336,
+    -1.912,
+    3.21
+   ],
+   "yaw": 1.5707963,
+   "len": 1.11,
+   "depth": 0.3,
+   "seed": 10,
+   "sag": 0.01,
+   "maxH": 0.36
+  },
+  {
+   "id": "c_shelf_w1_2",
+   "pos": [
+    1.319,
+    -1.428,
+    3.208
+   ],
+   "yaw": 1.5707963,
+   "len": 1.1,
+   "depth": 0.27,
+   "seed": 17,
+   "sag": 0.01,
+   "maxH": 0.36
+  },
+  {
+   "id": "c_shelf_w1_3",
+   "pos": [
+    1.27,
+    -0.987,
+    3.211
+   ],
+   "yaw": 1.5707963,
+   "len": 1.12,
+   "depth": 0.35,
+   "seed": 24,
+   "sag": 0.01,
+   "maxH": 0.35
+  },
+  {
+   "id": "c_shelf_w2_0",
+   "pos": [
+    1.276,
+    -2.525,
+    4.506
+   ],
+   "yaw": 1.5707963,
+   "len": 0.81,
+   "depth": 0.35,
+   "seed": 31,
+   "sag": 0.01,
+   "maxH": 0.36
+  },
+  {
+   "id": "c_shelf_w2_1",
+   "pos": [
+    1.268,
+    -2.084,
+    4.502
+   ],
+   "yaw": 1.5707963,
+   "len": 0.89,
+   "depth": 0.33,
+   "seed": 38,
+   "sag": 0.01,
+   "maxH": 0.334
+  },
+  {
+   "id": "c_shelf_w2_2",
+   "pos": [
+    1.235,
+    -1.68,
+    4.5
+   ],
+   "yaw": 1.5707963,
+   "len": 0.88,
+   "depth": 0.28,
+   "seed": 45,
+   "sag": 0.01,
+   "maxH": 0.35
+  },
+  {
+   "id": "c_shelf_n1_0",
+   "pos": [
+    2.758,
+    -2.416,
+    -5.644
+   ],
+   "yaw": 0,
+   "len": 1.12,
+   "depth": 0.3,
+   "seed": 52,
+   "sag": 0.01,
+   "maxH": 0.36
+  },
+  {
+   "id": "c_shelf_n1_1",
+   "pos": [
+    2.74,
+    -1.911,
+    -5.648
+   ],
+   "yaw": 0,
+   "len": 1.11,
+   "depth": 0.3,
+   "seed": 59,
+   "sag": 0.01,
+   "maxH": 0.36
+  },
+  {
+   "id": "c_shelf_n1_2",
+   "pos": [
+    2.742,
+    -1.426,
+    -5.665
+   ],
+   "yaw": 0,
+   "len": 1.1,
+   "depth": 0.27,
+   "seed": 66,
+   "sag": 0.01,
+   "maxH": 0.36
+  },
+  {
+   "id": "c_shelf_n1_3",
+   "pos": [
+    2.739,
+    -0.985,
+    -5.714
+   ],
+   "yaw": 0,
+   "len": 1.12,
+   "depth": 0.35,
+   "seed": 73,
+   "sag": 0.01,
+   "maxH": 0.35
+  },
+  {
+   "id": "c_shelf_n2_0",
+   "pos": [
+    3.944,
+    -2.528,
+    -5.734
+   ],
+   "yaw": 0,
+   "len": 0.81,
+   "depth": 0.35,
+   "seed": 80,
+   "sag": 0.01,
+   "maxH": 0.36
+  },
+  {
+   "id": "c_shelf_n2_1",
+   "pos": [
+    3.948,
+    -2.087,
+    -5.742
+   ],
+   "yaw": 0,
+   "len": 0.89,
+   "depth": 0.33,
+   "seed": 87,
+   "sag": 0.01,
+   "maxH": 0.334
+  },
+  {
+   "id": "c_shelf_n2_2",
+   "pos": [
+    3.949,
+    -1.683,
+    -5.775
+   ],
+   "yaw": 0,
+   "len": 0.88,
+   "depth": 0.28,
+   "seed": 94,
+   "sag": 0.01,
+   "maxH": 0.35
+  }
+ ],
+ "grandfathers": [
+  {
+   "id": "hall",
+   "pos": [
+    -1.92,
+    0,
+    -0.06
+   ],
+   "yaw": 1.5707963,
+   "period": 2
+  }
+ ],
+ "threads": [
+  {
+   "from": [
+    5.5,
+    4.893,
+    5.709
+   ],
+   "to": [
+    2,
+    5.3,
+    0.09
+   ],
+   "color": "#a3161c",
+   "sag": 0.232
+  },
+  {
+   "from": [
+    5.5,
+    4.893,
+    5.709
+   ],
+   "to": [
+    2.2,
+    4.75,
+    0.1
+   ],
+   "color": "#a3161c",
+   "sag": 0.228
+  },
+  {
+   "from": [
+    3.25,
+    4.683,
+    5.3
+   ],
+   "to": [
+    6.55,
+    5.78,
+    0.2
+   ],
+   "color": "#1a1414",
+   "sag": 0.216
+  },
+  {
+   "from": [
+    3.25,
+    4.683,
+    5.3
+   ],
+   "to": [
+    5,
+    5.45,
+    0.09
+   ],
+   "color": "#a3161c",
+   "sag": 0.194
+  },
+  {
+   "from": [
+    6.4,
+    4.376,
+    1.45
+   ],
+   "to": [
+    1.09,
+    5.35,
+    4.6
+   ],
+   "color": "#a3161c",
+   "sag": 0.219
+  },
+  {
+   "from": [
+    6.4,
+    4.376,
+    1.45
+   ],
+   "to": [
+    2.2,
+    5.25,
+    5.99
+   ],
+   "color": "#1a1414",
+   "sag": 0.219
+  },
+  {
+   "from": [
+    4.65,
+    4.073,
+    5.619
+   ],
+   "to": [
+    2,
+    5.3,
+    0.09
+   ],
+   "color": "#a3161c",
+   "sag": 0.219
+  },
+  {
+   "from": [
+    4.65,
+    4.073,
+    5.619
+   ],
+   "to": [
+    2.2,
+    4.75,
+    0.1
+   ],
+   "color": "#a3161c",
+   "sag": 0.213
+  },
+  {
+   "from": [
+    2,
+    5.3,
+    0.09
+   ],
+   "to": [
+    6.15,
+    4.55,
+    5.98
+   ],
+   "color": "#1a1414",
+   "sag": 0.254
+  },
+  {
+   "from": [
+    2,
+    5.3,
+    0.09
+   ],
+   "to": [
+    5,
+    4.7,
+    5.99
+   ],
+   "color": "#a3161c",
+   "sag": 0.233
+  },
+  {
+   "from": [
+    5,
+    5.45,
+    0.09
+   ],
+   "to": [
+    2.2,
+    5.25,
+    5.99
+   ],
+   "color": "#a3161c",
+   "sag": 0.229
+  },
+  {
+   "from": [
+    5,
+    5.45,
+    0.09
+   ],
+   "to": [
+    6.15,
+    4.55,
+    5.98
+   ],
+   "color": "#1a1414",
+   "sag": 0.212
+  },
+  {
+   "from": [
+    1.09,
+    5.2,
+    1.8
+   ],
+   "to": [
+    6.15,
+    4.55,
+    5.98
+   ],
+   "color": "#a3161c",
+   "sag": 0.231
+  },
+  {
+   "from": [
+    1.09,
+    5.2,
+    1.8
+   ],
+   "to": [
+    5.5,
+    4.893,
+    5.709
+   ],
+   "color": "#a3161c",
+   "sag": 0.207
+  },
+  {
+   "from": [
+    1.09,
+    5.35,
+    4.6
+   ],
+   "to": [
+    6.55,
+    5.78,
+    0.2
+   ],
+   "color": "#1a1414",
+   "sag": 0.246
+  },
+  {
+   "from": [
+    1.09,
+    5.35,
+    4.6
+   ],
+   "to": [
+    5.55,
+    4.282,
+    0.31
+   ],
+   "color": "#a3161c",
+   "sag": 0.22
+  },
+  {
+   "from": [
+    2.2,
+    5.25,
+    5.99
+   ],
+   "to": [
+    6.55,
+    5.78,
+    0.2
+   ],
+   "color": "#a3161c",
+   "sag": 0.254
+  },
+  {
+   "from": [
+    2.2,
+    5.25,
+    5.99
+   ],
+   "to": [
+    5.55,
+    4.282,
+    0.31
+   ],
+   "color": "#1a1414",
+   "sag": 0.233
+  },
+  {
+   "from": [
+    4,
+    4.75,
+    5.99
+   ],
+   "to": [
+    6.55,
+    5.78,
+    0.2
+   ],
+   "color": "#a3161c",
+   "sag": 0.224
+  },
+  {
+   "from": [
+    4,
+    4.75,
+    5.99
+   ],
+   "to": [
+    2,
+    5.3,
+    0.09
+   ],
+   "color": "#a3161c",
+   "sag": 0.219
+  },
+  {
+   "from": [
+    5,
+    4.7,
+    5.99
+   ],
+   "to": [
+    2.2,
+    4.75,
+    0.1
+   ],
+   "color": "#1a1414",
+   "sag": 0.228
+  },
+  {
+   "from": [
+    2.2,
+    4.75,
+    0.1
+   ],
+   "to": [
+    6.15,
+    4.55,
+    5.98
+   ],
+   "color": "#a3161c",
+   "sag": 0.248
+  },
+  {
+   "from": [
+    1.55,
+    4.113,
+    1.5
+   ],
+   "to": [
+    6.15,
+    4.55,
+    5.98
+   ],
+   "color": "#a3161c",
+   "sag": 0.225
+  },
+  {
+   "from": [
+    1.55,
+    4.113,
+    1.5
+   ],
+   "to": [
+    5.5,
+    4.893,
+    5.709
+   ],
+   "color": "#1a1414",
+   "sag": 0.204
+  }
+ ],
+ "bulbs": [
+  {
+   "id": "attic",
+   "top": [
+    3,
+    8.196,
+    0
+   ],
+   "pos": [
+    3,
+    7.65,
+    0
+   ],
+   "light": "attic_lamp",
+   "web": "up/up_bulb_fixture.glb",
+   "drop": 0.516,
+   "hang": 10.16
+  }
+ ],
+ "dolls": [
+  {
+   "id": "at_doll_tall",
+   "web": "up/up_doll_tall.glb",
+   "pos": [
+    -4,
+    6.0122,
+    2.4
+   ],
+   "yaw": 3.7416,
+   "scale": 1
+  },
+  {
+   "id": "at_rocker_doll",
+   "web": "up/up_doll_velvet.glb",
+   "pos": [
+    -4,
+    6.7591,
+    1.2
+   ],
+   "yaw": 2.0708,
+   "scale": 0.95
+  },
+  {
+   "id": "at_doll_velvet_2",
+   "web": "up/up_doll_velvet.glb",
+   "pos": [
+    -4.992,
+    7.8196,
+    2.342
+   ],
+   "yaw": 3.0716,
+   "scale": 1
+  },
+  {
+   "id": "at_doll_lace",
+   "web": "up/up_doll_lace.glb",
+   "pos": [
+    -5.379,
+    7.8144,
+    2.342
+   ],
+   "yaw": 3.1416,
+   "scale": 1
+  },
+  {
+   "id": "at_doll_curls",
+   "web": "up/up_doll_curls.glb",
+   "pos": [
+    -5.766,
+    7.7987,
+    2.342
+   ],
+   "yaw": 3.2116,
+   "scale": 1
+  },
+  {
+   "id": "at_doll_straw_hat",
+   "web": "up/up_doll_straw_hat.glb",
+   "pos": [
+    -6.154,
+    7.8012,
+    2.33
+   ],
+   "yaw": 3.1066,
+   "scale": 1
+  },
+  {
+   "id": "at_doll_tartan",
+   "web": "up/up_doll_tartan.glb",
+   "pos": [
+    -6.541,
+    7.7867,
+    2.337
+   ],
+   "yaw": 3.1766,
+   "scale": 1
+  },
+  {
+   "id": "at_doll_pinafore",
+   "web": "up/up_doll_pinafore.glb",
+   "pos": [
+    -6.928,
+    7.8049,
+    2.342
+   ],
+   "yaw": 3.0716,
+   "scale": 1
+  },
+  {
+   "id": "at_doll_clown",
+   "web": "up/up_doll_clown.glb",
+   "pos": [
+    -5.082,
+    7.0853,
+    2.272
+   ],
+   "yaw": 3.1766,
+   "scale": 1
+  },
+  {
+   "id": "at_doll_dark",
+   "web": "up/up_doll_dark.glb",
+   "pos": [
+    -5.469,
+    7.0794,
+    2.272
+   ],
+   "yaw": 3.0716,
+   "scale": 1
+  },
+  {
+   "id": "at_doll_sailor",
+   "web": "up/up_doll_sailor.glb",
+   "pos": [
+    -5.856,
+    7.0816,
+    2.272
+   ],
+   "yaw": 3.1416,
+   "scale": 1
+  },
+  {
+   "id": "at_doll_school",
+   "web": "up/up_doll_school.glb",
+   "pos": [
+    -6.244,
+    7.0833,
+    2.263
+   ],
+   "yaw": 3.2116,
+   "scale": 1
+  },
+  {
+   "id": "at_doll_bonnet",
+   "web": "up/up_doll_bonnet.glb",
+   "pos": [
+    -6.631,
+    7.0773,
+    2.272
+   ],
+   "yaw": 3.1066,
+   "scale": 1
+  },
+  {
+   "id": "at_doll_shepherdess",
+   "web": "up/up_doll_shepherdess.glb",
+   "pos": [
+    -7.018,
+    7.081,
+    2.272
+   ],
+   "yaw": 3.1766,
+   "scale": 1
+  },
+  {
+   "id": "at_doll_rag",
+   "web": "up/up_doll_rag.glb",
+   "pos": [
+    -5.031,
+    6.4057,
+    2.272
+   ],
+   "yaw": 3.1066,
+   "scale": 1
+  },
+  {
+   "id": "at_doll_twins",
+   "web": "up/up_doll_twins.glb",
+   "pos": [
+    -5.495,
+    6.3919,
+    2.242
+   ],
+   "yaw": 3.1766,
+   "scale": 1
+  },
+  {
+   "id": "at_doll_boy",
+   "web": "up/up_doll_boy.glb",
+   "pos": [
+    -5.96,
+    6.3949,
+    2.272
+   ],
+   "yaw": 3.0716,
+   "scale": 1
+  },
+  {
+   "id": "at_doll_nightgown",
+   "web": "up/up_doll_nightgown.glb",
+   "pos": [
+    -6.425,
+    6.4023,
+    2.25
+   ],
+   "yaw": 3.1416,
+   "scale": 1
+  },
+  {
+   "id": "at_doll_bisque_baby",
+   "web": "up/up_doll_bisque_baby.glb",
+   "pos": [
+    -6.889,
+    6.4121,
+    2.19
+   ],
+   "yaw": 3.2116,
+   "scale": 1
+  },
+  {
+   "id": "at_doll_curls_2",
+   "web": "up/up_doll_curls.glb",
+   "pos": [
+    0.945,
+    7.3927,
+    0.495
+   ],
+   "yaw": 1.5008,
+   "scale": 0.9
+  },
+  {
+   "id": "at_doll_lace_2",
+   "web": "up/up_doll_lace.glb",
+   "pos": [
+    0.936,
+    7.3932,
+    0.04
+   ],
+   "yaw": 1.5708,
+   "scale": 0.85
+  },
+  {
+   "id": "at_doll_dark_2",
+   "web": "up/up_doll_dark.glb",
+   "pos": [
+    0.952,
+    7.393,
+    -0.415
+   ],
+   "yaw": 1.6408,
+   "scale": 0.85
+  },
+  {
+   "id": "at_doll_pinafore_2",
+   "web": "up/up_doll_pinafore.glb",
+   "pos": [
+    1.497,
+    7.0306,
+    0.405
+   ],
+   "yaw": 1.6058,
+   "scale": 0.75
+  },
+  {
+   "id": "at_doll_baby",
+   "web": "up/up_doll_baby.glb",
+   "pos": [
+    1.543,
+    7.0316,
+    -0.05
+   ],
+   "yaw": 1.5008,
+   "scale": 0.75
+  },
+  {
+   "id": "at_doll_rag_2",
+   "web": "up/up_doll_rag.glb",
+   "pos": [
+    1.494,
+    7.0326,
+    -0.505
+   ],
+   "yaw": 1.5708,
+   "scale": 0.75
+  },
+  {
+   "id": "at_doll_boy_2",
+   "web": "up/up_doll_boy.glb",
+   "pos": [
+    1.813,
+    6.6511,
+    0.495
+   ],
+   "yaw": 1.5358,
+   "scale": 0.75
+  },
+  {
+   "id": "at_doll_straw_hat_2",
+   "web": "up/up_doll_straw_hat.glb",
+   "pos": [
+    1.86,
+    6.6513,
+    -0.415
+   ],
+   "yaw": 1.5008,
+   "scale": 0.72
+  },
+  {
+   "id": "at_marionette_soldier",
+   "web": "up/up_marionette_soldier.glb",
+   "pos": [
+    2.385,
+    6.2738,
+    0.462
+   ],
+   "yaw": 1.6408,
+   "scale": 1
+  },
+  {
+   "id": "at_marionette_jester",
+   "web": "up/up_marionette_jester.glb",
+   "pos": [
+    2.374,
+    6.2741,
+    0.121
+   ],
+   "yaw": 1.5358,
+   "scale": 1
+  },
+  {
+   "id": "at_marionette_clown",
+   "web": "up/up_marionette_clown.glb",
+   "pos": [
+    2.364,
+    6.2745,
+    -0.221
+   ],
+   "yaw": 1.6058,
+   "scale": 1
+  },
+  {
+   "id": "at_marionette_dancer",
+   "web": "up/up_marionette_dancer.glb",
+   "pos": [
+    2.375,
+    6.2733,
+    -0.562
+   ],
+   "yaw": 1.5008,
+   "scale": 1
+  }
+ ],
+ "shades": [
+  {
+   "id": "p_floor_lamp_1",
+   "web": "up/p_floor_lamp.glb",
+   "pos": [
+    -6,
+    0.0134,
+    -0.6
+   ],
+   "yaw": 0.3,
+   "scale": 1,
+   "band": [
+    1.165,
+    1.705
+   ],
+   "axis": [
+    0.019,
+    0.003
+   ],
+   "rMax": 0.293
+  },
+  {
+   "id": "p_lamp_f1",
+   "web": "up/p_lamp_fringe.glb",
+   "pos": [
+    -4.1,
+    0.6549,
+    -0.66
+   ],
+   "yaw": 0.5,
+   "scale": 1,
+   "band": [
+    0.299,
+    0.569
+   ],
+   "axis": [
+    0.002,
+    0.001
+   ],
+   "rMax": 0.141
+  },
+  {
+   "id": "h_shade_1",
+   "web": "up/h_pendant_shade.glb",
+   "pos": [
+    -0.6,
+    2.3707,
+    0
+   ],
+   "yaw": 0,
+   "scale": 1,
+   "band": [
+    0,
+    0.28
+   ],
+   "axis": [
+    0,
+    0
+   ],
+   "rMax": 0.143,
+   "follow": "hall_bulb"
+  },
+  {
+   "id": "h_lamp_n1",
+   "web": "up/h_table_lamp.glb",
+   "pos": [
+    -1.72,
+    0.7886,
+    -5.6
+   ],
+   "yaw": 0.3,
+   "scale": 1,
+   "band": [
+    0.328,
+    0.518
+   ],
+   "axis": [
+    0.004,
+    -0.002
+   ],
+   "rMax": 0.105
+  },
+  {
+   "id": "b_lamp_1",
+   "web": "up/up_lamp_shaded.glb",
+   "pos": [
+    4.32,
+    0.5409,
+    0.3
+   ],
+   "yaw": 0.3,
+   "scale": 1,
+   "band": [
+    0.297,
+    0.557
+   ],
+   "axis": [
+    0.003,
+    -0.005
+   ],
+   "rMax": 0.174
+  },
+  {
+   "id": "hu_win_lamp",
+   "web": "up/up_lamp_shaded.glb",
+   "pos": [
+    -0.62,
+    3.762,
+    -5.75
+   ],
+   "yaw": 0,
+   "scale": 0.9,
+   "band": [
+    0.297,
+    0.557
+   ],
+   "axis": [
+    0.003,
+    -0.005
+   ],
+   "rMax": 0.174
+  },
+  {
+   "id": "sw_lamp",
+   "web": "up/up_lamp_shaded.glb",
+   "pos": [
+    -6.45,
+    3.7609,
+    5.68
+   ],
+   "yaw": 0,
+   "scale": 1,
+   "band": [
+    0.297,
+    0.557
+   ],
+   "axis": [
+    0.003,
+    -0.005
+   ],
+   "rMax": 0.174
+  }
+ ]
+}

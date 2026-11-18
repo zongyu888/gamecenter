@@ -1,0 +1,1288 @@
+{
+  "version": 1,
+  "formats": [
+    "ogg",
+    "m4a"
+  ],
+  "sounds": {
+    "amb_creak": {
+      "files": [
+        "amb_creak_1",
+        "amb_creak_2",
+        "amb_creak_3"
+      ],
+      "gain": 0.6,
+      "loop": false,
+      "source": "sonilo-sfx-v1.1, mirelo-sfx-2.0, elevenlabs-sfx-v2",
+      "durations": [
+        2.043,
+        1.894,
+        1.932
+      ]
+    },
+    "amb_night": {
+      "files": [
+        "amb_night_1"
+      ],
+      "gain": 0.81,
+      "loop": true,
+      "source": "sonilo-sfx-v1.1",
+      "durations": [
+        17.101
+      ]
+    },
+    "ar_shot": {
+      "files": [
+        "ar_shot_1",
+        "ar_shot_2",
+        "ar_shot_3"
+      ],
+      "gain": 1.1,
+      "loop": false,
+      "source": "mirelo-sfx-2.0",
+      "durations": [
+        0.9,
+        0.9,
+        0.897
+      ]
+    },
+    "board_land": {
+      "files": [
+        "board_land_1",
+        "board_land_2"
+      ],
+      "gain": 0.7,
+      "loop": false,
+      "source": "mirelo-sfx-2.0, sonilo-sfx-v1.1",
+      "durations": [
+        0.597,
+        0.431
+      ]
+    },
+    "board_place": {
+      "files": [
+        "board_place_1",
+        "board_place_2",
+        "board_place_3"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "sonilo-sfx-v1.1, mirelo-sfx-2.0, elevenlabs-sfx-v2",
+      "durations": [
+        0.656,
+        0.288,
+        0.421
+      ]
+    },
+    "board_tear": {
+      "files": [
+        "board_tear_1",
+        "board_tear_2",
+        "board_tear_3"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "mirelo-sfx-2.0, elevenlabs-sfx-v2, sonilo-sfx-v1.1",
+      "durations": [
+        1.003,
+        1.08,
+        1.006
+      ]
+    },
+    "body_fall": {
+      "files": [
+        "body_fall_1",
+        "body_fall_2",
+        "body_fall_3"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "mirelo-sfx-2.0, sonilo-sfx-v1.1, elevenlabs-sfx-v2",
+      "durations": [
+        1.1,
+        1.04,
+        0.692
+      ]
+    },
+    "bolt_rack": {
+      "files": [
+        "bolt_rack_1",
+        "bolt_rack_2"
+      ],
+      "gain": 0.7,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, sonilo-sfx-v1.1",
+      "durations": [
+        0.792,
+        0.648
+      ]
+    },
+    "bottle_smash": {
+      "files": [
+        "bottle_smash_1",
+        "bottle_smash_2"
+      ],
+      "gain": 0.9,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, mirelo-sfx-2.0",
+      "durations": [
+        1,
+        1
+      ]
+    },
+    "breath_heavy": {
+      "files": [
+        "breath_heavy_1"
+      ],
+      "gain": 0.73,
+      "loop": true,
+      "source": "mirelo-sfx-2.0",
+      "durations": [
+        3.775
+      ]
+    },
+    "bulb_ping": {
+      "files": [
+        "bulb_ping_1",
+        "bulb_ping_2"
+      ],
+      "gain": 0.6,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2",
+      "durations": [
+        0.6,
+        0.6
+      ]
+    },
+    "buy": {
+      "files": [
+        "buy_1"
+      ],
+      "gain": 0.7,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2",
+      "durations": [
+        0.88
+      ]
+    },
+    "chest_close": {
+      "files": [
+        "chest_close_1",
+        "chest_close_2"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "mirelo-sfx-2.0, sonilo-sfx-v1.1",
+      "durations": [
+        0.798,
+        0.617
+      ]
+    },
+    "chest_laugh": {
+      "files": [
+        "chest_laugh_1",
+        "chest_laugh_2"
+      ],
+      "gain": 0.9,
+      "loop": false,
+      "source": "sonilo-sfx-v1.1, elevenlabs-sfx-v2",
+      "durations": [
+        2.417,
+        2.56
+      ]
+    },
+    "chest_open": {
+      "files": [
+        "chest_open_1",
+        "chest_open_2"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, sonilo-sfx-v1.1",
+      "durations": [
+        0.9,
+        1.016
+      ]
+    },
+    "chest_reveal": {
+      "files": [
+        "chest_reveal_1",
+        "chest_reveal_2"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, mirelo-sfx-2.0",
+      "durations": [
+        1,
+        0.956
+      ]
+    },
+    "chest_roll": {
+      "files": [
+        "chest_roll_1",
+        "chest_roll_2"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, sonilo-sfx-v1.1",
+      "durations": [
+        4,
+        4
+      ]
+    },
+    "chest_whoosh": {
+      "files": [
+        "chest_whoosh_1",
+        "chest_whoosh_2"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "sonilo-sfx-v1.1, elevenlabs-sfx-v2",
+      "durations": [
+        1.388,
+        1.11
+      ]
+    },
+    "debris_clear": {
+      "files": [
+        "debris_clear_1",
+        "debris_clear_2"
+      ],
+      "gain": 0.9,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, mirelo-sfx-2.0",
+      "durations": [
+        1.795,
+        1.981
+      ]
+    },
+    "deny": {
+      "files": [
+        "deny_1",
+        "deny_2"
+      ],
+      "gain": 0.6,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, sonilo-sfx-v1.1",
+      "durations": [
+        0.48,
+        0.464
+      ]
+    },
+    "door_open": {
+      "files": [
+        "door_open_1",
+        "door_open_2"
+      ],
+      "gain": 0.9,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, mirelo-sfx-2.0",
+      "durations": [
+        2,
+        1.99
+      ]
+    },
+    "down_fall": {
+      "files": [
+        "down_fall_1",
+        "down_fall_2"
+      ],
+      "gain": 0.9,
+      "loop": false,
+      "source": "mirelo-sfx-2.0, elevenlabs-sfx-v2",
+      "durations": [
+        1.1,
+        1
+      ]
+    },
+    "drink": {
+      "files": [
+        "drink_1",
+        "drink_2"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, mirelo-sfx-2.0",
+      "durations": [
+        1.548,
+        1.835
+      ]
+    },
+    "dryfire": {
+      "files": [
+        "dryfire_1",
+        "dryfire_2"
+      ],
+      "gain": 0.7,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2",
+      "durations": [
+        0.366,
+        0.191
+      ]
+    },
+    "ear_ring": {
+      "files": [
+        "ear_ring_1"
+      ],
+      "gain": 0.5,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2",
+      "durations": [
+        3
+      ]
+    },
+    "game_over": {
+      "files": [
+        "game_over_1",
+        "game_over_2"
+      ],
+      "gain": 0.9,
+      "loop": false,
+      "source": "mirelo-sfx-2.0, stable-audio-3-medium",
+      "durations": [
+        7.99,
+        8.083
+      ]
+    },
+    "generator_spool": {
+      "files": [
+        "generator_spool_1",
+        "generator_spool_2"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, mirelo-sfx-2.0",
+      "durations": [
+        3,
+        3
+      ]
+    },
+    "gib": {
+      "files": [
+        "gib_1",
+        "gib_2"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "sonilo-sfx-v1.1, elevenlabs-sfx-v2",
+      "durations": [
+        0.876,
+        0.833
+      ]
+    },
+    "grenade_bounce": {
+      "files": [
+        "grenade_bounce_1",
+        "grenade_bounce_2"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2",
+      "durations": [
+        0.6,
+        0.546
+      ]
+    },
+    "grenade_pin": {
+      "files": [
+        "grenade_pin_1",
+        "grenade_pin_2"
+      ],
+      "gain": 0.7,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, mirelo-sfx-2.0",
+      "durations": [
+        0.234,
+        0.6
+      ]
+    },
+    "headshot_crack": {
+      "files": [
+        "headshot_crack_1",
+        "headshot_crack_2",
+        "headshot_crack_3"
+      ],
+      "gain": 1,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, mirelo-sfx-2.0",
+      "durations": [
+        0.59,
+        0.6,
+        0.586
+      ]
+    },
+    "heartbeat": {
+      "files": [
+        "heartbeat_1"
+      ],
+      "gain": 0.9,
+      "loop": true,
+      "source": "elevenlabs-sfx-v2",
+      "durations": [
+        1
+      ]
+    },
+    "impact_dirt": {
+      "files": [
+        "impact_dirt_1",
+        "impact_dirt_2",
+        "impact_dirt_3"
+      ],
+      "gain": 0.7,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, sonilo-sfx-v1.1",
+      "durations": [
+        0.45,
+        0.387,
+        0.45
+      ]
+    },
+    "impact_flesh": {
+      "files": [
+        "impact_flesh_1",
+        "impact_flesh_2",
+        "impact_flesh_3"
+      ],
+      "gain": 0.9,
+      "loop": false,
+      "source": "mirelo-sfx-2.0, elevenlabs-sfx-v2",
+      "durations": [
+        0.368,
+        0.45,
+        0.45
+      ]
+    },
+    "impact_plaster": {
+      "files": [
+        "impact_plaster_1",
+        "impact_plaster_2",
+        "impact_plaster_3"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, sonilo-sfx-v1.1",
+      "durations": [
+        0.45,
+        0.45,
+        0.45
+      ]
+    },
+    "impact_wood": {
+      "files": [
+        "impact_wood_1",
+        "impact_wood_2",
+        "impact_wood_3"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, mirelo-sfx-2.0",
+      "durations": [
+        0.45,
+        0.45,
+        0.45
+      ]
+    },
+    "jingle_hairtrigger": {
+      "files": [
+        "jingle_hairtrigger_1"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "stable-audio-3-medium",
+      "durations": [
+        7
+      ]
+    },
+    "jingle_irongut": {
+      "files": [
+        "jingle_irongut_1"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "stable-audio-3-medium",
+      "durations": [
+        6.34
+      ]
+    },
+    "jingle_quickhands": {
+      "files": [
+        "jingle_quickhands_1"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "ace-step",
+      "durations": [
+        7
+      ]
+    },
+    "jingle_secondwind": {
+      "files": [
+        "jingle_secondwind_1"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "stable-audio-3-medium",
+      "durations": [
+        7
+      ]
+    },
+    "knife_hit": {
+      "files": [
+        "knife_hit_1",
+        "knife_hit_2",
+        "knife_hit_3"
+      ],
+      "gain": 0.9,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, mirelo-sfx-2.0",
+      "durations": [
+        0.6,
+        0.509,
+        0.6
+      ]
+    },
+    "knife_swing": {
+      "files": [
+        "knife_swing_1",
+        "knife_swing_2",
+        "knife_swing_3"
+      ],
+      "gain": 0.7,
+      "loop": false,
+      "source": "mirelo-sfx-2.0, sonilo-sfx-v1.1, elevenlabs-sfx-v2",
+      "durations": [
+        0.45,
+        0.335,
+        0.31
+      ]
+    },
+    "lamp_buzz": {
+      "files": [
+        "lamp_buzz_1",
+        "lamp_buzz_2"
+      ],
+      "gain": 0.6,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, sonilo-sfx-v1.1",
+      "durations": [
+        1.48,
+        1.486
+      ]
+    },
+    "lever_cycle": {
+      "files": [
+        "lever_cycle_1",
+        "lever_cycle_2"
+      ],
+      "gain": 0.7,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, sonilo-sfx-v1.1",
+      "durations": [
+        0.8,
+        0.8
+      ]
+    },
+    "lmg_shot": {
+      "files": [
+        "lmg_shot_1",
+        "lmg_shot_2",
+        "lmg_shot_3"
+      ],
+      "gain": 1.15,
+      "loop": false,
+      "source": "mirelo-sfx-2.0",
+      "durations": [
+        0.897,
+        0.892,
+        0.9
+      ]
+    },
+    "mag_in": {
+      "files": [
+        "mag_in_1",
+        "mag_in_2"
+      ],
+      "gain": 0.7,
+      "loop": false,
+      "source": "sonilo-sfx-v1.1, mirelo-sfx-2.0",
+      "durations": [
+        0.265,
+        0.558
+      ]
+    },
+    "mag_out": {
+      "files": [
+        "mag_out_1",
+        "mag_out_2"
+      ],
+      "gain": 0.7,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, mirelo-sfx-2.0",
+      "durations": [
+        0.54,
+        0.557
+      ]
+    },
+    "music_bed": {
+      "files": [
+        "music_bed_1"
+      ],
+      "gain": 0.55,
+      "loop": true,
+      "source": "stable-audio-3-medium",
+      "durations": [
+        68.78
+      ],
+      "bpm": 69.8,
+      "key": "D minor",
+      "bars": 20,
+      "notes": "Seamless loop. music_tension has the same key, tempo and exact length: start both together and raise music_tension in late rounds."
+    },
+    "music_tension": {
+      "files": [
+        "music_tension_1"
+      ],
+      "gain": 0.55,
+      "loop": true,
+      "source": "stable-audio-3-medium",
+      "durations": [
+        68.78
+      ],
+      "bpm": 69.8,
+      "key": "D minor",
+      "bars": 20,
+      "notes": "Same key, tempo and exact loop length as music_bed: start both at the same time, crossfade or layer for late rounds."
+    },
+    "perk_breath": {
+      "files": [
+        "perk_breath_1",
+        "perk_breath_2"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "mirelo-sfx-2.0, elevenlabs-sfx-v2",
+      "durations": [
+        0.946,
+        1
+      ]
+    },
+    "pistol_shot": {
+      "files": [
+        "pistol_shot_1",
+        "pistol_shot_2",
+        "pistol_shot_3"
+      ],
+      "gain": 1.1,
+      "loop": false,
+      "source": "mirelo-sfx-2.0, sonilo-sfx-v1.1",
+      "durations": [
+        0.997,
+        0.993,
+        0.72
+      ]
+    },
+    "player_hurt": {
+      "files": [
+        "player_hurt_1",
+        "player_hurt_2",
+        "player_hurt_3"
+      ],
+      "gain": 0.9,
+      "loop": false,
+      "source": "mirelo-sfx-2.0, elevenlabs-sfx-v2",
+      "durations": [
+        0.483,
+        0.644,
+        0.46
+      ]
+    },
+    "power_hum": {
+      "files": [
+        "power_hum_1"
+      ],
+      "gain": 0.35,
+      "loop": true,
+      "source": "elevenlabs-sfx-v2",
+      "durations": [
+        6.381
+      ]
+    },
+    "power_lever": {
+      "files": [
+        "power_lever_1",
+        "power_lever_2"
+      ],
+      "gain": 0.9,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2",
+      "durations": [
+        0.63,
+        0.72
+      ]
+    },
+    "power_thunk": {
+      "files": [
+        "power_thunk_1",
+        "power_thunk_2"
+      ],
+      "gain": 1,
+      "loop": false,
+      "source": "mirelo-sfx-2.0, sonilo-sfx-v1.1",
+      "durations": [
+        1.49,
+        1.447
+      ]
+    },
+    "powerup_hum": {
+      "files": [
+        "powerup_hum_1"
+      ],
+      "gain": 0.5,
+      "loop": true,
+      "source": "elevenlabs-sfx-v2",
+      "durations": [
+        4.858
+      ]
+    },
+    "powerup_pickup": {
+      "files": [
+        "powerup_pickup_1",
+        "powerup_pickup_2"
+      ],
+      "gain": 0.9,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, mirelo-sfx-2.0",
+      "durations": [
+        1,
+        0.999
+      ]
+    },
+    "powerup_spawn": {
+      "files": [
+        "powerup_spawn_1",
+        "powerup_spawn_2"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, sonilo-sfx-v1.1",
+      "durations": [
+        1,
+        0.994
+      ]
+    },
+    "pump": {
+      "files": [
+        "pump_1",
+        "pump_2"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, sonilo-sfx-v1.1",
+      "durations": [
+        0.34,
+        0.656
+      ]
+    },
+    "revive": {
+      "files": [
+        "revive_1",
+        "revive_2"
+      ],
+      "gain": 0.9,
+      "loop": false,
+      "source": "mirelo-sfx-2.0",
+      "durations": [
+        1.554,
+        1.5
+      ]
+    },
+    "rifle_shot": {
+      "files": [
+        "rifle_shot_1",
+        "rifle_shot_2",
+        "rifle_shot_3"
+      ],
+      "gain": 1.2,
+      "loop": false,
+      "source": "sonilo-sfx-v1.1, mirelo-sfx-2.0",
+      "durations": [
+        1.471,
+        1.596,
+        1.596
+      ]
+    },
+    "round_end": {
+      "files": [
+        "round_end_1",
+        "round_end_2"
+      ],
+      "gain": 0.9,
+      "loop": false,
+      "source": "stable-audio-3-medium, sonilo-music-v1.1",
+      "durations": [
+        6.5,
+        6.5
+      ]
+    },
+    "round_start": {
+      "files": [
+        "round_start_1",
+        "round_start_2"
+      ],
+      "gain": 0.9,
+      "loop": false,
+      "source": "sonilo-sfx-v1.1, sonilo-music-v1.1",
+      "durations": [
+        4.674,
+        5.5
+      ]
+    },
+    "shell_insert": {
+      "files": [
+        "shell_insert_1",
+        "shell_insert_2"
+      ],
+      "gain": 0.7,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, mirelo-sfx-2.0",
+      "durations": [
+        0.431,
+        0.45
+      ]
+    },
+    "shell_tink": {
+      "files": [
+        "shell_tink_1",
+        "shell_tink_2",
+        "shell_tink_3"
+      ],
+      "gain": 0.5,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, mirelo-sfx-2.0, sonilo-sfx-v1.1",
+      "durations": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "shockwave_boom": {
+      "files": [
+        "shockwave_boom_1",
+        "shockwave_boom_2"
+      ],
+      "gain": 1,
+      "loop": false,
+      "source": "sonilo-sfx-v1.1",
+      "durations": [
+        3.4,
+        3.13
+      ]
+    },
+    "shotgun_shot": {
+      "files": [
+        "shotgun_shot_1",
+        "shotgun_shot_2",
+        "shotgun_shot_3"
+      ],
+      "gain": 1.2,
+      "loop": false,
+      "source": "mirelo-sfx-2.0, elevenlabs-sfx-v2",
+      "durations": [
+        1.5,
+        1.497,
+        0.95
+      ]
+    },
+    "siren": {
+      "files": [
+        "siren_1"
+      ],
+      "gain": 0.7,
+      "loop": false,
+      "source": "mirelo-sfx-2.0",
+      "durations": [
+        6
+      ]
+    },
+    "slide_rack": {
+      "files": [
+        "slide_rack_1",
+        "slide_rack_2"
+      ],
+      "gain": 0.7,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, sonilo-sfx-v1.1",
+      "durations": [
+        0.63,
+        0.361
+      ]
+    },
+    "smg_shot": {
+      "files": [
+        "smg_shot_1",
+        "smg_shot_2",
+        "smg_shot_3"
+      ],
+      "gain": 1,
+      "loop": false,
+      "source": "mirelo-sfx-2.0, sonilo-sfx-v1.1, elevenlabs-sfx-v2",
+      "durations": [
+        0.598,
+        0.5,
+        0.38
+      ]
+    },
+    "step_dirt": {
+      "files": [
+        "step_dirt_1",
+        "step_dirt_2",
+        "step_dirt_3",
+        "step_dirt_4"
+      ],
+      "gain": 0.6,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, sonilo-sfx-v1.1",
+      "durations": [
+        0.45,
+        0.45,
+        0.45,
+        0.429
+      ]
+    },
+    "step_wood": {
+      "files": [
+        "step_wood_1",
+        "step_wood_2",
+        "step_wood_3",
+        "step_wood_4"
+      ],
+      "gain": 0.6,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, sonilo-sfx-v1.1",
+      "durations": [
+        0.384,
+        0.45,
+        0.27,
+        0.45
+      ]
+    },
+    "storm_chain": {
+      "files": [
+        "storm_chain_1",
+        "storm_chain_2"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, sonilo-sfx-v1.1",
+      "durations": [
+        1.2,
+        1.192
+      ]
+    },
+    "storm_zap": {
+      "files": [
+        "storm_zap_1",
+        "storm_zap_2"
+      ],
+      "gain": 0.9,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, sonilo-sfx-v1.1",
+      "durations": [
+        1,
+        1.022
+      ]
+    },
+    "thunder": {
+      "files": [
+        "thunder_1",
+        "thunder_2"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, sonilo-sfx-v1.1",
+      "durations": [
+        3.942,
+        3.994
+      ]
+    },
+    "vo_batten_down": {
+      "files": [
+        "vo_batten_down_1",
+        "vo_batten_down_2"
+      ],
+      "gain": 1,
+      "loop": false,
+      "source": "elevenlabs-tts-v4",
+      "text": "Batten Down!",
+      "durations": [
+        1.205,
+        1.148
+      ]
+    },
+    "vo_double_bounty": {
+      "files": [
+        "vo_double_bounty_1"
+      ],
+      "gain": 1,
+      "loop": false,
+      "source": "elevenlabs-tts-v4",
+      "text": "Double Bounty!",
+      "durations": [
+        1.27
+      ]
+    },
+    "vo_full_belt": {
+      "files": [
+        "vo_full_belt_1"
+      ],
+      "gain": 1,
+      "loop": false,
+      "source": "elevenlabs-tts-v4",
+      "text": "Full Belt!",
+      "durations": [
+        0.946
+      ]
+    },
+    "vo_game_over": {
+      "files": [
+        "vo_game_over_1",
+        "vo_game_over_2"
+      ],
+      "gain": 1,
+      "loop": false,
+      "source": "elevenlabs-tts-v4",
+      "text": "Lights out.",
+      "durations": [
+        1.091,
+        1.152
+      ]
+    },
+    "vo_one_shot": {
+      "files": [
+        "vo_one_shot_1",
+        "vo_one_shot_2"
+      ],
+      "gain": 1,
+      "loop": false,
+      "source": "elevenlabs-tts-v4",
+      "text": "One Shot!",
+      "durations": [
+        0.858,
+        0.845
+      ]
+    },
+    "vo_power_on": {
+      "files": [
+        "vo_power_on_1"
+      ],
+      "gain": 1,
+      "loop": false,
+      "source": "elevenlabs-tts-v4",
+      "text": "The power's back on.",
+      "durations": [
+        1.353
+      ]
+    },
+    "vo_shockwave": {
+      "files": [
+        "vo_shockwave_1",
+        "vo_shockwave_2"
+      ],
+      "gain": 1,
+      "loop": false,
+      "source": "elevenlabs-tts-v4",
+      "text": "Shockwave!",
+      "durations": [
+        1.066,
+        1.125
+      ]
+    },
+    "vo_welcome": {
+      "files": [
+        "vo_welcome_1",
+        "vo_welcome_2"
+      ],
+      "gain": 1,
+      "loop": false,
+      "source": "elevenlabs-tts-v4",
+      "text": "Welcome to Harrowfield.",
+      "durations": [
+        1.6,
+        1.547
+      ]
+    },
+    "weapon_raise": {
+      "files": [
+        "weapon_raise_1",
+        "weapon_raise_2"
+      ],
+      "gain": 0.6,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, mirelo-sfx-2.0",
+      "durations": [
+        0.6,
+        0.416
+      ]
+    },
+    "z_attack": {
+      "files": [
+        "z_attack_1",
+        "z_attack_2"
+      ],
+      "gain": 0.9,
+      "loop": false,
+      "source": "mirelo-sfx-2.0, sonilo-sfx-v1.1",
+      "durations": [
+        1.04,
+        0.995
+      ]
+    },
+    "z_bite": {
+      "files": [
+        "z_bite_1",
+        "z_bite_2"
+      ],
+      "gain": 0.9,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, mirelo-sfx-2.0",
+      "durations": [
+        1,
+        0.982
+      ]
+    },
+    "z_climb": {
+      "files": [
+        "z_climb_1",
+        "z_climb_2"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "mirelo-sfx-2.0",
+      "durations": [
+        0.727,
+        0.91
+      ]
+    },
+    "z_crawl": {
+      "files": [
+        "z_crawl_1",
+        "z_crawl_2"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "mirelo-sfx-2.0",
+      "durations": [
+        1.825,
+        1.85
+      ]
+    },
+    "z_death": {
+      "files": [
+        "z_death_1",
+        "z_death_2",
+        "z_death_3"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "mirelo-sfx-2.0, elevenlabs-sfx-v2",
+      "durations": [
+        1.975,
+        1.945,
+        1.977
+      ]
+    },
+    "z_groan": {
+      "files": [
+        "z_groan_1",
+        "z_groan_2",
+        "z_groan_3",
+        "z_groan_4",
+        "z_groan_5",
+        "z_groan_6",
+        "z_groan_7",
+        "z_groan_8"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, mirelo-sfx-2.0, sonilo-sfx-v1.1",
+      "durations": [
+        2.56,
+        2.557,
+        2.56,
+        2.516,
+        2.437,
+        2.39,
+        2.455,
+        2.48
+      ]
+    },
+    "z_growl": {
+      "files": [
+        "z_growl_1",
+        "z_growl_2",
+        "z_growl_3"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "mirelo-sfx-2.0, elevenlabs-sfx-v2, sonilo-sfx-v1.1",
+      "durations": [
+        1.578,
+        1.59,
+        1.54
+      ]
+    },
+    "z_rise": {
+      "files": [
+        "z_rise_1",
+        "z_rise_2"
+      ],
+      "gain": 0.8,
+      "loop": false,
+      "source": "elevenlabs-sfx-v2, mirelo-sfx-2.0",
+      "durations": [
+        1.97,
+        1.946
+      ]
+    },
+    "z_scream": {
+      "files": [
+        "z_scream_1",
+        "z_scream_2",
+        "z_scream_3"
+      ],
+      "gain": 0.9,
+      "loop": false,
+      "source": "sonilo-sfx-v1.1, elevenlabs-sfx-v2",
+      "durations": [
+        1.537,
+        1.6,
+        1.6
+      ]
+    },
+    "music_choir": {
+      "files": [
+        "music_choir_1"
+      ],
+      "gain": 1,
+      "loop": true,
+      "source": "sonniss: Certified Audio - Ambient Soundscapes, Church Choir_Dm.wav",
+      "durations": [
+        34.39
+      ],
+      "bpm": 69.8,
+      "key": "D minor",
+      "notes": "Real choir (A2): a 3 s stab shifted down a fourth (its G and D onto D and A) and frozen into a held chord. Loop is half of music_bed, so start it with the bed. tools/audio/sonniss.mjs --only=choir"
+    }
+  },
+  "credits": [
+    "ElevenLabs Sound Effects v2 (fal-ai/elevenlabs/sound-effects/v2, paid API via fal): generated sound effects, royalty-free for commercial use, no attribution required on paid use; may not be resold as a competing sound-effects product.",
+    "Mirelo SFX 2.0 (mirelo-ai/sfx2.0/text-to-audio, paid API via fal): generated sound effects; paid API output may ship commercially and the user owns the output; a 'Powered by Mirelo' badge is required only if players trigger generation (they don't).",
+    "Sonilo v1.1 sound effects (sonilo/v1.1/text-to-sound-effects, paid API via fal): API output includes commercial-use rights including games; contains an inaudible provenance watermark.",
+    "Sonilo v1.1 music (sonilo/v1.1/text-to-music, paid API via fal): API output includes commercial-use rights including games; contains an inaudible provenance watermark.",
+    "Stable Audio 3 Medium (fal-ai/stable-audio-3/medium/text-to-audio, paid API via fal), Stability AI: trained on licensed data; you own your outputs and can distribute and commercialize them.",
+    "ACE-Step (fal-ai/ace-step/prompt-to-audio, paid API via fal): open model (Apache-2.0 weights); generated music, no rights claimed on outputs.",
+    "ElevenLabs Eleven v4 text-to-speech (elevenlabs/tts/eleven-v4, paid API via fal), library voice 'Adam': generated speech, commercial use allowed on paid use, no attribution required; radio filtering by Patch.",
+    "Kit takes reused from night/kit/audio (same generators and terms as above). All other processing (trimming, loops, loudness, radio filter) by Patch."
+  ]
+}

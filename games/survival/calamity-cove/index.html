@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<link rel="icon" href="data:," />
+		<title>灾厄海湾</title>
+		<style>:root{--ink:#fffaf0;--glass:#18162673;--warn:#ff4b3a;--gold:#ffd36a;--calm:#8fd7e8;--lightningcss-light: ;--lightningcss-dark:initial;color-scheme:dark}html,body{height:100%;color:var(--ink);-webkit-user-select:none;user-select:none;touch-action:none;background:#c9b49a;margin:0;font-family:system-ui,-apple-system,Segoe UI,Inter,Roboto,sans-serif;overflow:hidden}#app{position:fixed;inset:0}canvas#view{outline:none;width:100%;height:100%;display:block}.layer{pointer-events:none;position:fixed;inset:0}.shadow{text-shadow:0 2px #00000059,0 0 14px #00000059}#veil{pointer-events:auto;cursor:pointer;background:radial-gradient(at 50% 55%,#14102800 30%,#1410288c);place-items:center;transition:opacity .5s;display:grid}#veil.gone{opacity:0;pointer-events:none}#veil .card{text-align:center;padding:26px 46px 24px;transform:translateY(-6vh)}#veil h1{letter-spacing:-1px;color:#fff4dc;text-shadow:0 4px #c4633e,0 8px #7a3a2a,0 14px 30px #1e0a288c;margin:0;font-size:clamp(44px,8vw,104px);font-weight:900;line-height:.95;animation:4s ease-in-out infinite bob}#veil .sub{opacity:.92;letter-spacing:.3px;margin-top:22px;font-size:17px;font-weight:600}#veil-status{opacity:.8;min-height:18px;margin-top:18px;font-size:13px}#veil .bar{background:#fff3;border-radius:3px;width:240px;height:4px;margin:10px auto 0;overflow:hidden}#veil-bar{background:var(--gold);transform-origin:0;height:100%;transition:transform .25s;transform:scaleX(0)}#veil-play{color:#2b1a12;background:var(--gold);border-radius:999px;width:max-content;margin:20px auto 0;padding:12px 34px;font-size:20px;font-weight:800;animation:1.5s ease-in-out infinite pulse;display:none;box-shadow:0 5px #b07c22,0 10px 24px #0000004d}#veil.ready #veil-play{display:block}#veil.ready .bar{display:none}#veil .keys{opacity:.8;margin-top:18px;font-size:13px}kbd{background:#ffffff29;border:1px solid #ffffff40;border-radius:4px;margin:0 1px;padding:1px 6px;font:600 12px/1.4 ui-monospace,Consolas,monospace;display:inline-block}@keyframes pulse{50%{transform:scale(.96)}}@keyframes bob{50%{transform:translateY(-6px)rotate(-.6deg)}}#pause{pointer-events:auto;cursor:pointer;background:#0f0c1c73;place-items:center;font-size:22px;font-weight:800;display:none}#pause.on{display:grid}#hud{opacity:0;transition:opacity .4s}body.playing #hud{opacity:1}#crosshair{background:#ffffffd9;border-radius:50%;width:4px;height:4px;margin:-2px 0 0 -2px;position:absolute;top:50%;left:50%;box-shadow:0 0 3px #0009}body.third #crosshair{display:none}#round{font-size:14px;font-weight:700;line-height:1.35;position:absolute;top:16px;left:20px}#round .big{font-variant-numeric:tabular-nums;letter-spacing:.5px;font-size:30px;font-weight:900}#round .big.urgent{color:var(--warn);animation:.5s ease-in-out infinite pulse}#people{text-align:right;font-size:14px;font-weight:700;line-height:1.4;position:absolute;top:16px;right:20px}#people .big{font-size:26px;font-weight:900}#health{background:#14102073;border:2px solid #ffffff59;border-radius:8px;width:260px;height:12px;margin-left:-130px;position:absolute;bottom:28px;left:50%;overflow:hidden}#health i{transform-origin:0;background:linear-gradient(90deg,#7be08a,#b6f07a);width:100%;height:100%;transition:transform .15s;display:block}#health.low i{background:linear-gradient(90deg,#ff4b3a,#ff8a5a)}#feed{flex-direction:column;align-items:flex-end;gap:6px;font-size:14px;font-weight:700;display:flex;position:absolute;top:96px;right:20px}#feed div{background:var(--glass);border-radius:8px;padding:5px 11px;transition:opacity .6s;animation:.35s cubic-bezier(.34,1.56,.64,1) feedin}@keyframes feedin{0%{opacity:0;transform:translate(30px)scale(.9)}}#banner{text-align:center;opacity:0;white-space:nowrap;transition:opacity .5s;position:absolute;top:15%;left:50%;transform:translate(-50%)}#banner.on{opacity:1}#banner h2{margin:0;font-size:46px;font-weight:900}#banner p{opacity:.92;margin:6px 0 0;font-size:17px;font-weight:600}#warning{text-align:center;background:linear-gradient(#c8140aeb,#a00a0ac7);border-bottom:4px solid #ffd36a;padding:14px 0 18px;transition:transform .35s cubic-bezier(.34,1.56,.64,1);position:absolute;top:0;left:0;right:0;transform:translateY(-110%)}#warning.on{transform:none}#warning .tag{letter-spacing:6px;color:#ffd36a;font-size:15px;font-weight:900;animation:.5s steps(2,end) infinite blink}#warning h2{text-transform:uppercase;letter-spacing:1px;margin:2px 0 0;font-size:44px;font-weight:900}#warning p{margin:2px 0 0;font-size:18px;font-weight:700}@keyframes blink{50%{opacity:.35}}#survivors{-webkit-backdrop-filter:blur(8px);text-align:center;opacity:0;background:#181428b8;border:1px solid #ffffff2e;border-radius:18px;min-width:340px;padding:22px 30px 20px;transition:opacity .35s,transform .45s cubic-bezier(.34,1.56,.64,1);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)scale(.85)}#survivors.on{opacity:1;transform:translate(-50%,-50%)scale(1)}#survivors h3{opacity:.7;letter-spacing:3px;text-transform:uppercase;margin:0;font-size:15px;font-weight:800}#survivors h2{margin:4px 0 12px;font-size:34px;font-weight:900}#survivors ul{margin:0;padding:0;font-size:18px;font-weight:700;line-height:1.6;list-style:none}#survivors li.you{color:var(--gold)}#survivors .streak{color:var(--gold);margin-top:12px;font-size:15px;font-weight:800}#death{text-align:center;opacity:0;transition:opacity .6s;position:absolute;top:38%;left:50%;transform:translate(-50%,-50%)}#death.small h2{font-size:26px}#death.small{top:18%}#death.on{opacity:1}#death h2{color:#ffcfc4;margin:0;font-size:50px;font-weight:900}#death p{margin:4px 0 0;font-size:17px;font-weight:700}.vignette{opacity:0;transition:opacity .15s;position:absolute;inset:0}#hurt{background:radial-gradient(#f000 45%,#be0a0abf)}#acidv{background:radial-gradient(#78ff2800 40%,#6ec8148c);transition:opacity .5s}#burnv{background:radial-gradient(#ff8c0000 40%,#ff5a0099)}#tags .nametag{white-space:nowrap;background:#14102066;border-radius:6px;padding:2px 7px;font-size:12px;font-weight:800;display:none;position:absolute;top:0;left:0}#tags .nametag.dead{color:#ffb4a8;text-decoration:line-through}#hint{background:var(--glass);white-space:nowrap;border-radius:10px;padding:7px 14px;font-size:13px;transition:opacity .8s;position:absolute;bottom:52px;left:50%;transform:translate(-50%)}#hint.gone{opacity:0}#debug{white-space:pre;background:#00000073;border-radius:6px;padding:6px 8px;font:11px/1.35 ui-monospace,Consolas,monospace;display:none;position:absolute;bottom:8px;right:8px}body.debug #debug{display:block}#nogpu{pointer-events:auto;text-align:center;background:#241d33;place-items:center;padding:20px;display:none}#nogpu.on{display:grid}@media (max-width:700px){#banner h2,#warning h2{font-size:30px}}</style>
+		<script type="module" crossorigin src="./assets/index-BVYjsKKM.js"></script>
+	</head>
+	<body>
+		<div id="app"><canvas id="view" tabindex="0"></canvas></div>
+		<div id="tags" class="layer"></div>
+		<div id="hud" class="layer shadow">
+			<div id="hurt" class="vignette"></div>
+			<div id="acidv" class="vignette"></div>
+			<div id="burnv" class="vignette"></div>
+			<div id="crosshair"></div>
+			<div id="round"><div class="big" id="clock">0:00</div><div id="roundinfo"></div></div>
+			<div id="people"><div class="big" id="alive">10 人存活</div><div id="streak"></div></div>
+			<div id="feed"></div>
+			<div id="health"><i></i></div>
+			<div id="banner"><h2></h2><p></p></div>
+			<div id="warning"><div class="tag">灾害预警</div><h2></h2><p></p></div>
+			<div id="survivors"><h3>幸存者</h3><h2></h2><ul></ul><div class="streak"></div></div>
+			<div id="death"><h2>你没能撑下来</h2><p></p></div>
+			<div id="hint">WASD 移动 · 鼠标转动视角 · 滚轮缩放 · V 第一人称 · Shift 疾跑 · Space 跳跃 · C 下蹲 · M 静音</div>
+		</div>
+		<div id="debug" class="layer"></div>
+		<div id="pause" class="layer shadow">已暂停。点击继续。</div>
+		<div id="veil" class="layer shadow">
+			<div class="card">
+				<h1>Calamity Cove</h1>
+				<div class="sub">一座小岛，每轮一场不同的灾害。快找地方躲起来。</div>
+				<div id="veil-status">加载中</div>
+				<div class="bar"><div id="veil-bar"></div></div>
+				<div id="veil-play">点击开始游戏</div>
+				<div class="keys"><kbd>WASD</kbd> 移动 &nbsp; <kbd>Shift</kbd> 疾跑 &nbsp; <kbd>Space</kbd> 跳跃 &nbsp; <kbd>C</kbd> 下蹲 &nbsp; <kbd>Esc</kbd> 暂停</div>
+			</div>
+		</div>
+		<div id="nogpu" class="layer"><div><h2>本游戏需要 WebGPU 或 WebGL 2</h2><p>你的浏览器无法启动 3D 渲染器。请尝试使用较新的 Chrome、Edge、Firefox 或 Safari。</p></div></div>
+		<script src="patch-credits.js" defer></script>
+	</body>
+</html>

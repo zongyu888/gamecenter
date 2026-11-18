@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>麻雀模拟器</title>
+    <meta name="description" content="Play as a house sparrow escaping an artist's attic studio to cause playful mischief across a storybook European neighborhood." />
+    <meta property="og:title" content="Sparrow Game" />
+    <meta property="og:description" content="Play as a house sparrow escaping an artist's attic studio to cause playful mischief across a storybook European neighborhood." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="data:," />
+    <script type="module" crossorigin src="./assets/index-tl3lOqMm.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-swVM58Qb.css">
+  </head>
+  <body>
+    <div id="loading-screen" class="loading-screen" aria-live="polite">
+      <div class="loading-minimal">
+        <div
+          id="sparrow-progress"
+          class="sparrow-progress"
+          role="progressbar"
+          aria-label="Loading"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+        >
+          <svg viewBox="0 0 220 136" width="184" height="114" aria-hidden="true">
+            <defs>
+              <clipPath id="sparrow-fill-clip">
+                <rect id="sparrow-fill-rect" x="18" y="0" width="0" height="136" />
+              </clipPath>
+              <g id="sparrow-silhouette-shape">
+                <path
+                  d="M 18 76 L 62 63 C 73 48 92 38 114 37 C 126 36 135 33 141 26 C 147 18 157 14 168 15 C 179 16 187 22 191 30 L 204 34 L 191 40 C 190 48 184 55 176 60 C 172 78 156 91 134 93 C 113 95 93 89 79 79 L 25 89 L 31 81 Z"
+                />
+                <path
+                  d="M 118 91 L 114 114 M 114 114 L 105 117 M 114 114 L 123 116 M 134 91 L 133 114 M 133 114 L 125 117 M 133 114 L 143 116"
+                  stroke-width="3.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  fill="none"
+                />
+              </g>
+            </defs>
+            <use href="#sparrow-silhouette-shape" class="sparrow-silhouette-base" />
+            <use
+              href="#sparrow-silhouette-shape"
+              class="sparrow-silhouette-fill"
+              clip-path="url(#sparrow-fill-clip)"
+            />
+          </svg>
+        </div>
+        <div id="loading-status" class="loading-status">LOADING</div>
+        <button id="press-start-btn" class="press-start-btn is-hidden" type="button" data-start="true">
+          START
+        </button>
+      </div>
+    </div>
+    <div id="app"></div>
+  </body>
+</html>
+

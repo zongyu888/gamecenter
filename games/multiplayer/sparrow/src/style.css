@@ -1,0 +1,635 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body,
+#app {
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: none;
+  background-color: #d8ecfa;
+  cursor: grab;
+  font-family: 'Avenir Next', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body.is-mobile,
+body.is-mobile #app {
+  cursor: default;
+}
+
+body.pointer-locked,
+body.pointer-locked #app {
+  cursor: none;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  touch-action: none;
+}
+
+/* Minimalist Translucent Sparrow Silhouette Loading Screen + Press Start Gate */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px)
+    env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+  background: radial-gradient(circle at 50% 42%, #fbf6ea 0%, #efe4cf 68%, #e4d4b9 100%);
+  cursor: default;
+  touch-action: manipulation;
+  transition: opacity 0.56s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.56s ease;
+}
+
+.loading-screen.is-loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loading-minimal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.sparrow-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sparrow-silhouette-base {
+  fill: rgba(58, 45, 36, 0.18);
+  stroke: rgba(58, 45, 36, 0.18);
+}
+
+.sparrow-silhouette-fill {
+  fill: rgba(58, 45, 36, 0.88);
+  stroke: rgba(58, 45, 36, 0.88);
+}
+
+.loading-status {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(58, 45, 36, 0.82);
+}
+
+.loading-status.is-error {
+  max-width: min(420px, calc(100vw - 32px));
+  padding: 10px 16px;
+  text-align: center;
+  text-transform: none;
+  line-height: 1.45;
+  color: #8f3926;
+  background: rgba(252, 241, 232, 0.92);
+  border: 1.5px solid rgba(176, 76, 52, 0.42);
+  border-radius: 12px;
+}
+
+.loading-status.is-hidden,
+.press-start-btn.is-hidden {
+  display: none;
+}
+
+.press-start-btn {
+  appearance: none;
+  border: 2px solid rgba(58, 45, 36, 0.38);
+  background: rgba(253, 249, 240, 0.72);
+  color: #3a2d24;
+  padding: 10px 28px;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  touch-action: manipulation;
+  box-shadow: 0 4px 14px rgba(38, 28, 18, 0.1);
+  transition: transform 0.14s ease, background-color 0.14s ease, border-color 0.14s ease;
+  animation: pressStartPulse 2.1s ease-in-out infinite;
+}
+
+.press-start-btn:hover,
+.press-start-btn:focus-visible {
+  outline: none;
+  background: rgba(255, 252, 246, 0.96);
+  border-color: rgba(58, 45, 36, 0.68);
+  transform: translateY(-1px);
+}
+
+.press-start-btn:active {
+  transform: translateY(1px);
+}
+
+@keyframes pressStartPulse {
+  0%,
+  100% {
+    opacity: 0.86;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Contextual Floating Tutorial Prompt (Desktop Keys + Mobile Touch Pills) */
+.tutorial-overlay {
+  position: fixed;
+  left: 50%;
+  top: 16%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  pointer-events: none;
+  max-width: calc(100vw - 24px);
+  transition: opacity 0.28s ease, transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.28s ease;
+}
+
+.tutorial-overlay.is-mobile {
+  top: calc(env(safe-area-inset-top, 0px) + 52px);
+}
+
+.tutorial-overlay.is-idle {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -42%) scale(0.94);
+}
+
+.tutorial-overlay.is-complete {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -32%) scale(0.9);
+}
+
+.tutorial-keys {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.tutorial-keys.step-pop {
+  animation: indieStepPop 0.26s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes indieStepPop {
+  0% {
+    transform: scale(0.86) translateY(6px);
+    opacity: 0.35;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.indie-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  height: 48px;
+  padding: 0 14px;
+  border-radius: 11px;
+  background: #fbf5e8;
+  color: #232128;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  border: 2px solid #dfd2bc;
+  box-shadow: 0 5px 0 #b7a78e, 0 8px 16px rgba(12, 14, 22, 0.32);
+  transform: translateY(0);
+  transition: transform 0.07s ease, box-shadow 0.07s ease, background-color 0.1s ease;
+}
+
+.indie-key.is-wide {
+  min-width: 148px;
+  font-size: 16px;
+  letter-spacing: 0.12em;
+}
+
+.indie-key.is-medium {
+  min-width: 92px;
+  font-size: 14.5px;
+  letter-spacing: 0.1em;
+}
+
+.indie-key.is-square {
+  width: 46px;
+  min-width: 46px;
+  height: 46px;
+  padding: 0;
+  font-size: 17px;
+  letter-spacing: 0;
+}
+
+.wasd-cluster {
+  display: grid;
+  grid-template-columns: repeat(3, 46px);
+  grid-template-rows: repeat(2, 46px);
+  gap: 7px 6px;
+  justify-items: center;
+  align-items: center;
+}
+
+.wasd-w {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.wasd-a {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.wasd-s {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.wasd-d {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.indie-key.is-pressed {
+  background: #ffd778;
+  border-color: #e5b248;
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 #b68a32, 0 3px 6px rgba(12, 14, 22, 0.22);
+}
+
+.mobile-tutorial-row {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 8px;
+}
+
+.mobile-touch-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px 6px 8px;
+  border-radius: 999px;
+  background: rgba(251, 245, 232, 0.94);
+  color: #262229;
+  border: 2px solid #dfd2bc;
+  box-shadow: 0 3px 0 #b7a78e, 0 6px 14px rgba(12, 14, 22, 0.22);
+  white-space: nowrap;
+  transition: transform 0.08s ease, box-shadow 0.08s ease, background-color 0.1s ease;
+}
+
+.mobile-touch-pill.is-pressed {
+  background: #ffd778;
+  border-color: #e5b248;
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #b68a32, 0 3px 8px rgba(12, 14, 22, 0.18);
+}
+
+.mobile-touch-gesture {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: #332a24;
+  color: #fbf5e8;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.mobile-touch-hint {
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* French-Postcard Sparrow Journal HUD (Hidden During Tutorial) */
+.journal-hud {
+  position: fixed;
+  top: calc(env(safe-area-inset-top, 0px) + 14px);
+  left: calc(env(safe-area-inset-left, 0px) + 14px);
+  z-index: 18;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.45s ease;
+}
+
+.journal-hud.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+}
+
+.journal-top-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: auto;
+}
+
+.journal-pill {
+  appearance: none;
+  font-family: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 13px;
+  border-radius: 999px;
+  background: rgba(251, 245, 232, 0.92);
+  color: #29252c;
+  border: 2px solid rgba(68, 56, 46, 0.22);
+  box-shadow: 0 6px 18px rgba(18, 22, 34, 0.18);
+  font-size: 13.5px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.12s ease;
+}
+
+.journal-pill:hover {
+  background: rgba(255, 251, 243, 0.98);
+  border-color: rgba(68, 56, 46, 0.45);
+}
+
+.journal-pill:focus-visible {
+  outline: 2px solid #c86428;
+  outline-offset: 2px;
+  background: rgba(255, 251, 243, 0.98);
+  border-color: rgba(68, 56, 46, 0.52);
+}
+
+.journal-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.journal-seed-dot {
+  width: 11px;
+  height: 9px;
+  border-radius: 44% 56% 52% 48%;
+  background: linear-gradient(135deg, #f6e4bc 0%, #cf8436 100%);
+  border: 1.5px solid #8c531e;
+  box-shadow: 0 1px 2px rgba(42, 26, 12, 0.22);
+}
+
+.journal-sep {
+  color: rgba(41, 37, 44, 0.4);
+}
+
+.journal-tab-key {
+  padding: 2px 6px;
+  border-radius: 5px;
+  background: #ebe0cc;
+  border: 1px solid #cbbba0;
+  box-shadow: 0 2px 0 #b7a68b;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #3a332d;
+}
+
+.journal-card {
+  width: max-content;
+  max-width: calc(
+    100vw - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px) - 28px
+  );
+  max-height: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 74px);
+  overflow-y: auto;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(252, 246, 234, 0.95);
+  border: 2px solid rgba(72, 58, 46, 0.24);
+  box-shadow: 0 14px 32px rgba(16, 20, 32, 0.24);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px) scale(0.97);
+  transform-origin: top left;
+  transition: opacity 0.24s ease, transform 0.24s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.24s ease;
+  pointer-events: none;
+  touch-action: pan-y;
+}
+
+.journal-hud.is-expanded .journal-card {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.journal-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.journal-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-size: clamp(11px, 2.85vw, 12.5px);
+  color: #2f2a28;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.journal-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.journal-item.is-done {
+  color: rgba(47, 42, 40, 0.52);
+}
+
+.journal-item.is-done .journal-label {
+  text-decoration: line-through;
+}
+
+.journal-check {
+  width: 15px;
+  height: 15px;
+  border-radius: 4px;
+  border: 1.5px solid #9d8974;
+  background: rgba(255, 252, 246, 0.72);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10.5px;
+  font-weight: 900;
+  line-height: 1;
+  color: transparent;
+  flex-shrink: 0;
+}
+
+.journal-item.is-done .journal-check {
+  background: #3f9154;
+  border-color: #357c47;
+  color: #fffaf0;
+}
+
+/* Single-Line Mission Completion Checkbox Toasts */
+.journal-toast-host {
+  position: fixed;
+  top: calc(env(safe-area-inset-top, 0px) + 14px);
+  right: calc(env(safe-area-inset-right, 0px) + 14px);
+  z-index: 19;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.journal-toast {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 9px;
+  max-width: calc(
+    100vw - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px) - 28px
+  );
+  padding: 8px 13px;
+  border-radius: 12px;
+  background: rgba(252, 246, 234, 0.96);
+  border: 2px solid #df9b42;
+  box-shadow: 0 10px 24px rgba(18, 20, 30, 0.22);
+  white-space: nowrap;
+  animation: toastSlideIn 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.journal-toast.is-leaving {
+  opacity: 0;
+  transform: translateY(-8px) scale(0.97);
+}
+
+@keyframes toastSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.journal-toast-stamp {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  background: #3f9154;
+  border: 1.5px solid #357c47;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11.5px;
+  font-weight: 900;
+  line-height: 1;
+  color: #fffaf0;
+  flex-shrink: 0;
+}
+
+.journal-toast.is-royal {
+  border-color: #e4a328;
+  background: rgba(255, 249, 232, 0.98);
+}
+
+.journal-toast.is-royal .journal-toast-stamp {
+  background: linear-gradient(135deg, #ffd866 0%, #df961e 100%);
+  border-color: #b57410;
+  color: #3a2308;
+}
+
+.journal-toast-label {
+  font-size: clamp(11.5px, 3vw, 13.5px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #292423;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 680px) {
+  .journal-toast-host {
+    top: calc(env(safe-area-inset-top, 0px) + 56px);
+    left: calc(env(safe-area-inset-left, 0px) + 14px);
+    right: auto;
+    align-items: flex-start;
+  }
+}
+
+/* Faint Minimalist Floating Touch Joystick (Visible ONLY While Touching/Holding) */
+.mobile-joystick {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  z-index: 16;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.14s ease;
+  will-change: transform, opacity;
+}
+
+.mobile-joystick.is-active {
+  opacity: 1;
+  transition: none;
+}
+
+.mobile-joystick-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 86px;
+  height: 86px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: rgba(252, 248, 240, 0.12);
+  border: 1.5px solid rgba(255, 250, 240, 0.42);
+  box-shadow: 0 0 0 1px rgba(42, 34, 28, 0.12);
+}
+
+.mobile-joystick-nub {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: rgba(255, 251, 243, 0.34);
+  border: 1.5px solid rgba(255, 251, 243, 0.62);
+  box-shadow: 0 2px 8px rgba(28, 22, 18, 0.14);
+  will-change: transform;
+}

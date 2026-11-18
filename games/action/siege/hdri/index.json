@@ -1,0 +1,42 @@
+{
+  "late_afternoon": {
+    "file": "qwantani_late_afternoon_puresky_1k.hdr",
+    "sun": [
+      0.5574,
+      0.7632,
+      0.3267
+    ],
+    "elevation": 19.1,
+    "sunColour": [
+      1,
+      0.881,
+      0.737
+    ],
+    "sunIrradiance": 16.108,
+    "skyColour": [
+      0.6354,
+      0.6967,
+      0.7819
+    ]
+  },
+  "sunset": {
+    "file": "qwantani_sunset_puresky_1k.hdr",
+    "sun": [
+      0.5849,
+      0.804,
+      0.1072
+    ],
+    "elevation": 6.2,
+    "sunColour": [
+      1,
+      0.58,
+      0.039
+    ],
+    "sunIrradiance": 3.971,
+    "skyColour": [
+      1.5024,
+      1.2528,
+      1.2932
+    ]
+  }
+}

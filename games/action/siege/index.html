@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <title>围城：僵尸防线</title>
+    <meta name="description" content="第一人称体素僵尸防守游戏：守住杂货店，阻止亡者挖洞潜入。" />
+    <style>html,body{color:#f3efe6;background:#15130f;height:100%;margin:0;font-family:Inter,system-ui,sans-serif;overflow:hidden}#view{width:100vw;height:100vh;display:block}#loader{z-index:20;box-sizing:border-box;background:radial-gradient(at 70% 30%,#6b4a33 0%,#2a1f18 45%,#120f0c 100%);justify-content:flex-start;align-items:flex-end;padding:0 0 9vh 7vw;transition:opacity .6s;display:flex;position:fixed;inset:0}#loader:before{content:"";opacity:.18;background-image:linear-gradient(#000 2px,#0000 2px),linear-gradient(90deg,#000 2px,#0000 2px),linear-gradient(90deg,#000 2px,#0000 2px);background-position:0 0,0 0,32px 24px;background-size:64px 24px,64px 48px,64px 48px;position:absolute;inset:0}#loader.done{opacity:0;pointer-events:none}#loader .card{width:min(520px,86vw);position:relative}#loader h1{text-transform:uppercase;letter-spacing:.01em;color:#fff6e4;text-shadow:0 2px #8a2a1c;margin:0;font:400 clamp(64px,10vw,128px)/.86 Anton,Impact,sans-serif}#loader h1 span{color:#ffb347}#loader .sub{opacity:.75;margin:12px 0 22px;font-size:14px;font-weight:700}#loader .track{background:#ffffff1a;border-radius:4px;height:8px;overflow:hidden}#loader .fill{background:linear-gradient(90deg,#c8392b,#ffb347);border-radius:4px;width:0;height:100%;transition:width .35s ease-out;box-shadow:0 0 14px #ff963c99}#loader .row{justify-content:space-between;margin-top:10px;font-size:12.5px;font-weight:700;display:flex}#loader .phase{opacity:.85}#loader .pct{opacity:.6;font-variant-numeric:tabular-nums}#loader .steps{display:none}#loader .error{background:#ff5a3c1f;border:1px solid #ff785059;border-radius:10px;margin-top:16px;padding:12px 14px;font-size:13px;line-height:1.5;display:none}#loader.failed .error{display:block}#loader .error small{opacity:.6;word-break:break-word;margin-top:6px;display:block}#nogpu{z-index:30;background:#120f0c;justify-content:center;align-items:center;display:flex;position:fixed;inset:0}#nogpu[hidden]{display:none}#nogpu .bg{filter:blur(6px)brightness(.55)saturate(1.1);background:url(needs-webgpu.jpg) 50%/cover;position:absolute;inset:-20px}#nogpu .panel{-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);background:#120f0cd1;border:1px solid #ffffff1f;border-radius:18px;width:min(560px,90vw);padding:30px 32px;position:relative;box-shadow:0 30px 80px #00000080}#nogpu h1{text-transform:uppercase;color:#fff6e4;text-shadow:0 2px #8a2a1c;margin:0;font:400 72px/.9 Anton,Impact,sans-serif}#nogpu h1 span{color:#ffb347}#nogpu h2{margin:18px 0 8px;font-size:20px;font-weight:800}#nogpu p{opacity:.85;margin:0 0 10px;font-size:14.5px;line-height:1.55}#nogpu .why{color:#ffb347;opacity:1;font-weight:700}#nogpu ul{opacity:.85;margin:6px 0 0;padding-left:18px;font-size:14px;line-height:1.7}</style>
+    <script type="module" crossorigin src="./assets/index-DjqQGU73.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-VLSOn7fl.css">
+  </head>
+  <body>
+    <div id="loader">
+      <div class="card">
+        <h1>围<span>城</span></h1>
+        <p class="sub">守住杂货店。它们正在挖洞潜入。</p>
+        <div class="track"><div class="fill"></div></div>
+        <div class="row"><span class="phase">启动中…</span><span class="pct">0%</span></div>
+        <ul class="steps"></ul>
+        <div class="error"></div>
+      </div>
+    </div>
+    <div id="nogpu" hidden>
+      <div class="bg"></div>
+      <div class="panel">
+        <h1>围<span>城</span></h1>
+        <h2>本游戏需要 WebGPU</h2>
+        <p class="why"></p>
+        <p>《围城》中的每一块砖都是通过 WebGPU 在显卡上模拟的刚体。没有它，就没有什么可以破坏。</p>
+        <p>支持以下浏览器：</p>
+        <ul>
+          <li>Windows、macOS 和 ChromeOS 上的 Chrome 或 Edge 113 及更高版本</li>
+          <li>macOS 和 iOS 上的 Safari 26</li>
+          <li>Windows 上的 Firefox 141 及更高版本</li>
+        </ul>
+      </div>
+    </div>
+    <canvas id="view"></canvas>
+    <script src="patch-credits.js" defer></script>
+  </body>
+</html>

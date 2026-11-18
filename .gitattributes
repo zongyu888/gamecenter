@@ -1,0 +1,42 @@
+# 统一文本换行，避免 Windows / macOS / Linux 之间出现无意义的整文件差异
+* text=auto eol=lf
+
+# 明确声明二进制资源，禁止任何换行转换
+*.glb   binary
+*.gltf  binary
+*.bin   binary
+*.ktx2  binary
+*.webp  binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.otf   binary
+*.mp3   binary
+*.ogg   binary
+*.wav   binary
+*.m4a   binary
+*.mp4   binary
+*.webm  binary
+*.zip   binary
+*.hdr   binary
+*.exr   binary
+
+# 文本文件一律 LF
+*.html  text eol=lf
+*.css   text eol=lf
+*.js    text eol=lf
+*.mjs   text eol=lf
+*.json  text eol=lf
+*.md    text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+*.ts    text eol=lf
+
+# 让 GitHub 把这些目录当作纯文本展示，避免统计成"非代码仓库"
+*.glb -diff
+*.webp -diff

@@ -1,0 +1,8 @@
+{
+  "name": "Sparrow Sim",
+  "description": "Take flight as a curious house sparrow who escapes an artist's sunlit attic studio to explore a vibrant, four-block storybook European neighborhood. Swoop across rooftops, canal quays, and bustling bistro terraces to complete 12 playful mischief and heartwarming deeds",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
